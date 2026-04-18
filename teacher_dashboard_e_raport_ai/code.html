@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>E-Raport AI - Teacher Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-on-surface": "#f5f0e8",
+                        "tertiary-fixed-dim": "#a8c6ff",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed": "#ffdad6",
+                        "primary-container": "#ffcc00",
+                        "secondary-container": "#ffdad6",
+                        "tertiary-fixed": "#d6e3ff",
+                        "primary-fixed-dim": "#e6b800",
+                        "error-container": "#ffdad6",
+                        "error": "#cc0000",
+                        "surface-tint": "#1a1a1a",
+                        "on-secondary-container": "#1a1a1a",
+                        "on-secondary-fixed-variant": "#1a1a1a",
+                        "surface-container-low": "#f2ede5",
+                        "surface-container": "#eee9e0",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-container": "#1a1a1a",
+                        "on-secondary-fixed": "#1a1a1a",
+                        "tertiary-container": "#d6e3ff",
+                        "on-secondary": "#1a1a1a",
+                        "primary-fixed": "#ffcc00",
+                        "outline-variant": "#d0cbc3",
+                        "surface-container-high": "#e8e3da",
+                        "on-tertiary-fixed": "#1a1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "secondary": "#e63b2e",
+                        "on-primary-fixed": "#1a1a1a",
+                        "on-surface-variant": "#4a4a4a",
+                        "surface-bright": "#faf7f2",
+                        "background": "#f5f0e8",
+                        "outline": "#1a1a1a",
+                        "inverse-primary": "#f5f0e8",
+                        "surface-variant": "#e8e3da",
+                        "on-primary-fixed-variant": "#1a1a1a",
+                        "surface-container-highest": "#e2ddd4",
+                        "on-surface": "#1a1a1a",
+                        "on-primary-container": "#1a1a1a",
+                        "on-error": "#ffffff",
+                        "on-background": "#1a1a1a",
+                        "tertiary": "#0055ff",
+                        "on-tertiary-fixed-variant": "#1a1a1a",
+                        "surface-dim": "#d6d1c9",
+                        "inverse-surface": "#1a1a1a",
+                        "secondary-fixed-dim": "#ffb3ab",
+                        "primary": "#1a1a1a",
+                        "surface": "#f5f0e8"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Space Grotesk"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .neo-shadow {
+            box-shadow: 6px 6px 0px 0px #1a1a1a;
+        }
+        .neo-shadow-sm {
+            box-shadow: 4px 4px 0px 0px #1a1a1a;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f5f0e8;
+        }
+        h1, h2, h3, .font-headline {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background">
+<!-- Sidebar (Shared Component SideNavBar) -->
+<aside class="fixed left-0 top-0 h-full flex flex-col z-40 bg-[#f5f0e8] w-64 border-r-4 border-[#1a1a1a] font-['Space_Grotesk'] font-bold uppercase">
+<div class="p-6 border-b-4 border-[#1a1a1a]">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-primary-container border-2 border-outline flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl">school</span>
+</div>
+<div>
+<h1 class="text-xl font-black text-[#1a1a1a]">ER-AI</h1>
+<p class="text-[10px] leading-tight opacity-70">V2.0.4</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 py-4">
+<!-- Active Navigation -->
+<a class="bg-[#ffcc00] text-[#1a1a1a] border-2 border-[#1a1a1a] m-2 p-3 flex items-center gap-3 shadow-[4px_4px_0px_0px_#1a1a1a] transition-none active:translate-x-1 active:translate-y-1" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 p-3 m-2 text-[#1a1a1a] font-bold hover:bg-[#0055ff] hover:text-white transition-none active:translate-x-1 active:translate-y-1" href="#">
+<span class="material-symbols-outlined">group</span>
+<span>Students</span>
+</a>
+<a class="flex items-center gap-3 p-3 m-2 text-[#1a1a1a] font-bold hover:bg-[#0055ff] hover:text-white transition-none active:translate-x-1 active:translate-y-1" href="#">
+<span class="material-symbols-outlined">grade</span>
+<span>Grades</span>
+</a>
+<a class="flex items-center gap-3 p-3 m-2 text-[#1a1a1a] font-bold hover:bg-[#0055ff] hover:text-white transition-none active:translate-x-1 active:translate-y-1" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span>Attendance</span>
+</a>
+<a class="flex items-center gap-3 p-3 m-2 text-[#1a1a1a] font-bold hover:bg-[#0055ff] hover:text-white transition-none active:translate-x-1 active:translate-y-1" href="#">
+<span class="material-symbols-outlined">assessment</span>
+<span>Reports</span>
+</a>
+</nav>
+<div class="mt-auto border-t-4 border-[#1a1a1a] py-4">
+<a class="flex items-center gap-3 p-3 m-2 text-[#1a1a1a] font-bold hover:bg-[#0055ff] hover:text-white transition-none active:translate-x-1 active:translate-y-1" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Settings</span>
+</a>
+<a class="flex items-center gap-3 p-3 m-2 text-[#1a1a1a] font-bold hover:bg-[#e63b2e] hover:text-white transition-none active:translate-x-1 active:translate-y-1" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Wrapper -->
+<main class="ml-64 min-h-screen">
+<!-- Top Nav Bar (Shared Component TopNavBar) -->
+<header class="flex justify-between items-center w-full px-8 py-4 z-50 sticky top-0 bg-[#f5f0e8] border-b-4 border-[#1a1a1a] shadow-[4px_4px_0px_0px_#1a1a1a] font-['Space_Grotesk'] font-bold uppercase">
+<div class="flex items-center gap-8">
+<span class="text-3xl font-black tracking-tighter text-[#1a1a1a]">E-Raport AI</span>
+<div class="hidden md:flex gap-6">
+<a class="text-[#ffcc00] font-black underline decoration-4" href="#">Overview</a>
+<a class="text-[#1a1a1a] hover:bg-[#1a1a1a] hover:text-[#ffcc00] p-1 px-2" href="#">Analytics</a>
+<a class="text-[#1a1a1a] hover:bg-[#1a1a1a] hover:text-[#ffcc00] p-1 px-2" href="#">Curriculum</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 mr-4 border-2 border-outline px-3 py-1 bg-white neo-shadow-sm">
+<span class="material-symbols-outlined text-sm">person</span>
+<span class="text-xs">Administrator</span>
+</div>
+<button class="material-symbols-outlined p-2 border-2 border-outline bg-white hover:bg-[#ffcc00] transition-none active:translate-x-[2px] active:translate-y-[2px] active:shadow-none">notifications</button>
+<button class="material-symbols-outlined p-2 border-2 border-outline bg-white hover:bg-[#ffcc00] transition-none active:translate-x-[2px] active:translate-y-[2px] active:shadow-none">help</button>
+<img alt="User profile" class="w-10 h-10 border-2 border-outline neo-shadow-sm" data-alt="Close up portrait of a professional male teacher with glasses in a modern bright office setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPic1XM-D5yF1Ftxz74zMlFckIFIJEdi5EdHK7DrTFYSuRobzIj9vXF-YCDEvdqh3DbZTROofH9AYoNR-AK3knOiWTF13lYhdzPuut6fM5KOXZgcjXLxM9t1X38ZQ8ywWvtfwNnJMI0bY_-WK0sWs0OV211StM66qjLWUGH0Tcq0XaYzaDyF8HaXKLklI30L8tZxu3WdbrNOcpyrrFQzmXIf6vdYB1lLAR1L18LyWv-pF7Jeg_2dXyS6NV81whUAoz21zwXCK_ZKHU"/>
+</div>
+</header>
+<div class="p-8 space-y-8">
+<!-- Smart AI Input Section -->
+<section class="w-full">
+<div class="bg-primary-container border-4 border-outline p-6 neo-shadow">
+<h2 class="text-2xl font-black mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined">auto_awesome</span>
+                        SMART AI GRADE INPUT
+                    </h2>
+<div class="flex flex-col md:flex-row gap-4">
+<div class="relative flex-grow">
+<input class="w-full bg-white border-b-4 border-outline p-4 text-xl font-headline placeholder:text-outline/40 focus:ring-0 focus:outline-none focus:border-tertiary" placeholder="Try: 'Input 85 for Budi in Mathematics Quiz 2'" type="text"/>
+<div class="absolute right-4 top-1/2 -translate-y-1/2 flex gap-2">
+<button class="p-3 bg-secondary text-white border-2 border-outline neo-shadow-sm hover:translate-y-[-2px] transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">mic</span>
+</button>
+<button class="px-6 py-3 bg-tertiary text-white border-2 border-outline neo-shadow-sm hover:translate-y-[-2px] transition-all font-headline font-bold">
+                                    PROCESS
+                                </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Grading Data Table -->
+<div class="lg:col-span-8 space-y-8">
+<section class="bg-white border-4 border-outline p-6 neo-shadow">
+<div class="flex justify-between items-end mb-6">
+<div>
+<h3 class="text-3xl font-black italic uppercase">Grading Data Table</h3>
+<p class="font-bold text-tertiary">Class 12-A • Academic Year 2023/2024</p>
+</div>
+<button class="bg-outline text-white px-4 py-2 font-headline font-bold flex items-center gap-2 uppercase text-sm border-2 border-outline hover:bg-white hover:text-outline transition-none">
+<span class="material-symbols-outlined">download</span> Export PDF
+                            </button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full border-collapse">
+<thead>
+<tr class="bg-surface-variant border-b-4 border-outline">
+<th class="text-left p-4 font-black uppercase text-sm border-r-2 border-outline">Student Name</th>
+<th class="text-center p-4 font-black uppercase text-sm border-r-2 border-outline">Math</th>
+<th class="text-center p-4 font-black uppercase text-sm border-r-2 border-outline">Physics</th>
+<th class="text-center p-4 font-black uppercase text-sm border-r-2 border-outline">English</th>
+<th class="text-center p-4 font-black uppercase text-sm">Average</th>
+</tr>
+</thead>
+<tbody class="font-headline font-bold">
+<tr class="border-b-2 border-outline hover:bg-primary-container/20">
+<td class="p-4 border-r-2 border-outline">Ahmad Subardjo</td>
+<td class="p-4 text-center border-r-2 border-outline">88</td>
+<td class="p-4 text-center border-r-2 border-outline">92</td>
+<td class="p-4 text-center border-r-2 border-outline">85</td>
+<td class="p-4 text-center bg-tertiary/10">88.3</td>
+</tr>
+<tr class="border-b-2 border-outline hover:bg-primary-container/20">
+<td class="p-4 border-r-2 border-outline">Budi Santoso</td>
+<td class="p-4 text-center border-r-2 border-outline">76</td>
+<td class="p-4 text-center border-r-2 border-outline bg-secondary/10 text-secondary">64</td>
+<td class="p-4 text-center border-r-2 border-outline">78</td>
+<td class="p-4 text-center bg-tertiary/10">72.6</td>
+</tr>
+<tr class="border-b-2 border-outline hover:bg-primary-container/20">
+<td class="p-4 border-r-2 border-outline">Citra Lestari</td>
+<td class="p-4 text-center border-r-2 border-outline">95</td>
+<td class="p-4 text-center border-r-2 border-outline">98</td>
+<td class="p-4 text-center border-r-2 border-outline">92</td>
+<td class="p-4 text-center bg-tertiary/10">95.0</td>
+</tr>
+<tr class="border-b-2 border-outline hover:bg-primary-container/20">
+<td class="p-4 border-r-2 border-outline">Dewi Sartika</td>
+<td class="p-4 text-center border-r-2 border-outline">82</td>
+<td class="p-4 text-center border-r-2 border-outline">79</td>
+<td class="p-4 text-center border-r-2 border-outline">88</td>
+<td class="p-4 text-center bg-tertiary/10">83.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Behavior Log -->
+<section class="bg-white border-4 border-outline p-6 neo-shadow">
+<h3 class="text-3xl font-black italic uppercase mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">warning</span> 
+                            Behavior Log Alerts
+                        </h3>
+<div class="space-y-4">
+<div class="border-2 border-outline bg-[#ffdad6] p-4 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="bg-secondary text-white p-2 border-2 border-outline">
+<span class="material-symbols-outlined">running_with_errors</span>
+</div>
+<div>
+<p class="font-black text-lg">Bolos (Truancy)</p>
+<p class="font-bold text-sm opacity-80 uppercase">Student: Budi Santoso • Period: 3 &amp; 4</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-black text-secondary">CRITICAL</p>
+<p class="text-xs font-bold">10 MINS AGO</p>
+</div>
+</div>
+<div class="border-2 border-outline bg-[#fff4cc] p-4 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="bg-primary-container text-outline p-2 border-2 border-outline">
+<span class="material-symbols-outlined">chat_bubble_outline</span>
+</div>
+<div>
+<p class="font-black text-lg">Disruptive Behavior</p>
+<p class="font-bold text-sm opacity-80 uppercase">Student: Ahmad Subardjo • Math Class</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-black text-outline">MODERATE</p>
+<p class="text-xs font-bold">45 MINS AGO</p>
+</div>
+</div>
+</div>
+<button class="w-full mt-4 py-3 font-black border-b-4 border-outline hover:bg-secondary/10 transition-none uppercase">View All Logs</button>
+</section>
+</div>
+<!-- Sidebar: Student Profiling -->
+<div class="lg:col-span-4 space-y-6">
+<h3 class="text-2xl font-black uppercase border-b-4 border-outline pb-2">Top Performer Profiling</h3>
+<!-- Profiling Card 1 -->
+<div class="bg-tertiary-container border-4 border-outline p-5 neo-shadow-sm flex flex-col items-center text-center">
+<img alt="Student profile" class="w-24 h-24 border-4 border-outline mb-4 grayscale" data-alt="Modern studio portrait of a young female high school student smiling with a minimalist background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhGVsc76MX-DWQ0eXVQGHJ7-NMS6LlDXPYWc_c3Y4lyFVTc_cj2Sz_BSIaMKYp_QlrAFhKTyjPifRa0BK_iFHkZ7tiuv5wQP56mFtwjSqp0aLZAmQXaIY5e_ZFgGmpFHE66Of3JS7DjfHswsuGBBEKFhXp45QMZwE8SEgdiTwNA1HJzyFqLwD2rFUfersbSSp6eptPWQHwfuMkvinJ-21kk92ex4IF1nR83bTrO_IPes391ix1taiRkxb8vWj_wuiHI5ZYvwTIliD2"/>
+<h4 class="text-xl font-black uppercase">Citra Lestari</h4>
+<div class="bg-tertiary text-white px-2 py-0.5 mt-1 font-bold text-xs border-2 border-outline neo-shadow-sm">RANK #1</div>
+<div class="mt-4 grid grid-cols-2 gap-4 w-full">
+<div class="bg-white border-2 border-outline p-2">
+<p class="text-[10px] font-black opacity-60 uppercase">Consistency</p>
+<p class="text-lg font-black">98%</p>
+</div>
+<div class="bg-white border-2 border-outline p-2">
+<p class="text-[10px] font-black opacity-60 uppercase">Participation</p>
+<p class="text-lg font-black">HIGH</p>
+</div>
+</div>
+<button class="w-full mt-4 bg-white border-2 border-outline py-2 font-black uppercase text-sm hover:bg-tertiary hover:text-white transition-none active:translate-x-1 active:translate-y-1">View Full Profile</button>
+</div>
+<!-- Profiling Card 2 -->
+<div class="bg-surface-variant border-4 border-outline p-5 neo-shadow-sm flex flex-col items-center text-center">
+<img alt="Student profile" class="w-24 h-24 border-4 border-outline mb-4 grayscale" data-alt="Headshot of a focused teenage boy in a school uniform, neutral lighting, contemporary style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtM_MzqkYPQGjweZ1hK8uKoVFmeV5WJNqyPxTz93F6DsWGr8Z_9YIS_O9P0T7wgbmVuXmyXTOO1osff19K5LODj543t5PYh2OG_VaPN_QHQxeAdVusl6GvSbPSZz7AERqoyHQ8m7R35nZS9uuMqNcblGFXZ6nl0kkaFpTW0hrLwXQHFLaSW02Q-Pr6IFlfTT3yyJZ0PuNiJGeBf4gKbasm-0_E6TeH9DeISRqwDnQ5_FwCM3H0DYP_YiwbrvTVXzPYBI51sPjWMPu-"/>
+<h4 class="text-xl font-black uppercase">Ahmad Subardjo</h4>
+<div class="bg-outline text-white px-2 py-0.5 mt-1 font-bold text-xs border-2 border-outline neo-shadow-sm">RANK #5</div>
+<div class="mt-4 grid grid-cols-2 gap-4 w-full">
+<div class="bg-white border-2 border-outline p-2">
+<p class="text-[10px] font-black opacity-60 uppercase">Consistency</p>
+<p class="text-lg font-black">82%</p>
+</div>
+<div class="bg-white border-2 border-outline p-2">
+<p class="text-[10px] font-black opacity-60 uppercase">Participation</p>
+<p class="text-lg font-black">MOD</p>
+</div>
+</div>
+<button class="w-full mt-4 bg-white border-2 border-outline py-2 font-black uppercase text-sm hover:bg-outline hover:text-white transition-none active:translate-x-1 active:translate-y-1">View Full Profile</button>
+</div>
+<!-- Quick Insight -->
+<div class="border-4 border-outline border-dashed p-6 text-center">
+<span class="material-symbols-outlined text-4xl mb-2">lightbulb</span>
+<p class="font-headline font-bold text-sm leading-tight">
+                            AI INSIGHT: Class 12-A physics scores are 15% higher than previous semester. Keep it up!
+                        </p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action Button -->
+<button class="fixed bottom-8 right-8 bg-[#ffcc00] text-[#1a1a1a] p-5 border-4 border-outline neo-shadow hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all active:translate-x-[4px] active:translate-y-[4px] active:shadow-none z-50">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">add</span>
+</button>
+</body></html>

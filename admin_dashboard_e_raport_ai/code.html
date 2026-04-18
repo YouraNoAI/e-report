@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>E-Raport AI | Administrator Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-on-surface": "#f5f0e8",
+                    "tertiary-fixed-dim": "#a8c6ff",
+                    "on-error-container": "#93000a",
+                    "secondary-fixed": "#ffdad6",
+                    "primary-container": "#ffcc00",
+                    "secondary-container": "#ffdad6",
+                    "tertiary-fixed": "#d6e3ff",
+                    "primary-fixed-dim": "#e6b800",
+                    "error-container": "#ffdad6",
+                    "error": "#cc0000",
+                    "surface-tint": "#1a1a1a",
+                    "on-secondary-container": "#1a1a1a",
+                    "on-secondary-fixed-variant": "#1a1a1a",
+                    "surface-container-low": "#f2ede5",
+                    "surface-container": "#eee9e0",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-container": "#1a1a1a",
+                    "on-secondary-fixed": "#1a1a1a",
+                    "tertiary-container": "#d6e3ff",
+                    "on-secondary": "#1a1a1a",
+                    "primary-fixed": "#ffcc00",
+                    "outline-variant": "#d0cbc3",
+                    "surface-container-high": "#e8e3da",
+                    "on-tertiary-fixed": "#1a1a1a",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "secondary": "#e63b2e",
+                    "on-primary-fixed": "#1a1a1a",
+                    "on-surface-variant": "#4a4a4a",
+                    "surface-bright": "#faf7f2",
+                    "background": "#f5f0e8",
+                    "outline": "#1a1a1a",
+                    "inverse-primary": "#f5f0e8",
+                    "surface-variant": "#e8e3da",
+                    "on-primary-fixed-variant": "#1a1a1a",
+                    "surface-container-highest": "#e2ddd4",
+                    "on-surface": "#1a1a1a",
+                    "on-primary-container": "#1a1a1a",
+                    "on-error": "#ffffff",
+                    "on-background": "#1a1a1a",
+                    "tertiary": "#0055ff",
+                    "on-tertiary-fixed-variant": "#1a1a1a",
+                    "surface-dim": "#d6d1c9",
+                    "inverse-surface": "#1a1a1a",
+                    "secondary-fixed-dim": "#ffb3ab",
+                    "primary": "#1a1a1a",
+                    "surface": "#f5f0e8"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Space Grotesk"],
+                    "body": ["Inter"],
+                    "label": ["Space Grotesk"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; background-color: #f5f0e8; color: #1a1a1a; }
+        h1, h2, h3, h4, .headline { font-family: 'Space Grotesk', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full flex flex-col z-40 h-screen w-64 border-r-4 border-[#1a1a1a] bg-[#f5f0e8]">
+<div class="p-6 border-b-4 border-[#1a1a1a] flex flex-col items-center gap-2">
+<div class="w-16 h-16 bg-[#ffcc00] border-4 border-[#1a1a1a] flex items-center justify-center shadow-[4px_4px_0px_0px_#1a1a1a]">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">architecture</span>
+</div>
+<h2 class="text-xl font-black text-[#1a1a1a] font-headline uppercase mt-2">ER-AI</h2>
+<span class="text-xs font-bold bg-[#1a1a1a] text-[#ffcc00] px-2 py-0.5">V2.0.4</span>
+</div>
+<nav class="flex-1 mt-6">
+<a class="bg-[#ffcc00] text-[#1a1a1a] border-2 border-[#1a1a1a] m-2 p-3 flex items-center gap-3 shadow-[4px_4px_0px_0px_#1a1a1a] font-['Space_Grotesk'] font-bold uppercase active:translate-x-1 active:translate-y-1" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-3 p-3 m-2 text-[#1a1a1a] font-bold font-['Space_Grotesk'] uppercase hover:bg-[#0055ff] hover:text-white transition-none active:translate-x-1 active:translate-y-1" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+                Students
+            </a>
+<a class="flex items-center gap-3 p-3 m-2 text-[#1a1a1a] font-bold font-['Space_Grotesk'] uppercase hover:bg-[#0055ff] hover:text-white transition-none active:translate-x-1 active:translate-y-1" href="#">
+<span class="material-symbols-outlined" data-icon="grade">grade</span>
+                Grades
+            </a>
+<a class="flex items-center gap-3 p-3 m-2 text-[#1a1a1a] font-bold font-['Space_Grotesk'] uppercase hover:bg-[#0055ff] hover:text-white transition-none active:translate-x-1 active:translate-y-1" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+                Attendance
+            </a>
+<a class="flex items-center gap-3 p-3 m-2 text-[#1a1a1a] font-bold font-['Space_Grotesk'] uppercase hover:bg-[#0055ff] hover:text-white transition-none active:translate-x-1 active:translate-y-1" href="#">
+<span class="material-symbols-outlined" data-icon="assessment">assessment</span>
+                Reports
+            </a>
+</nav>
+<div class="border-t-4 border-[#1a1a1a] p-4">
+<a class="flex items-center gap-3 p-3 text-[#1a1a1a] font-bold font-['Space_Grotesk'] uppercase hover:bg-[#0055ff] hover:text-white transition-none" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                Settings
+            </a>
+<a class="flex items-center gap-3 p-3 text-[#e63b2e] font-bold font-['Space_Grotesk'] uppercase hover:bg-[#1a1a1a] hover:text-white transition-none" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+                Logout
+            </a>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="ml-64 min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="flex justify-between items-center w-full px-8 py-4 z-50 bg-[#f5f0e8] text-[#1a1a1a] font-['Space_Grotesk'] font-bold uppercase docked full-width top-0 border-b-4 border-[#1a1a1a] shadow-[4px_4px_0px_0px_#1a1a1a]">
+<div class="flex items-center gap-8">
+<h1 class="text-3xl font-black tracking-tighter text-[#1a1a1a]">E-Raport AI</h1>
+<div class="relative hidden lg:block">
+<span class="absolute inset-y-0 left-3 flex items-center">
+<span class="material-symbols-outlined text-[#1a1a1a]">search</span>
+</span>
+<input class="bg-transparent border-2 border-[#1a1a1a] pl-10 pr-4 py-1 font-bold text-sm focus:ring-0 focus:outline-none focus:bg-white w-64" placeholder="SEARCH STUDENTS..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-[#1a1a1a] hover:text-[#ffcc00] transition-none active:translate-x-[2px] active:translate-y-[2px]">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 hover:bg-[#1a1a1a] hover:text-[#ffcc00] transition-none active:translate-x-[2px] active:translate-y-[2px]">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+</div>
+<div class="flex items-center gap-3 pl-6 border-l-2 border-[#1a1a1a]">
+<div class="text-right">
+<p class="text-xs font-black">Administrator</p>
+<p class="text-[10px] text-[#1a1a1a]/60">Wali Kelas - XII IPA 1</p>
+</div>
+<img class="w-10 h-10 border-2 border-[#1a1a1a] object-cover" data-alt="Close-up portrait of a professional male administrator with glasses in a modern bright office setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuALhdzuImsDby29WSFUv3tpASYOgc8ssvQ1r-ljHjpmlhlCe_ImuPk5s48ZyIeetzPzv1fXoWnRJvEdaTJG35MJ-J8VrEBz97SQPemmnVxma5940xG6vPSUsT1AKlCm907q3hetFIZb1FISs4i-w1uaNtZr2XrOyjbzo8FeDhvUCuxP44FnuZeNkwtLpFvvgJlcQ3NsAPib7r5ju1DIFqFWGpC8SFZTqTd9P7t2DNva0sWGi7K1l0wgFVF3LMgIjdrz9uLG_Su8aild"/>
+</div>
+</div>
+</header>
+<!-- Page Content -->
+<div class="p-8 space-y-8">
+<!-- Analytics Bento Grid -->
+<section class="grid grid-cols-12 gap-6">
+<!-- Class Performance Bar Chart Card -->
+<div class="col-span-12 lg:col-span-7 bg-white border-4 border-[#1a1a1a] shadow-[8px_8px_0px_0px_#1a1a1a] p-6">
+<div class="flex justify-between items-end mb-8">
+<div>
+<h2 class="text-3xl font-black uppercase leading-none">Class Performance</h2>
+<p class="text-sm font-bold text-[#1a1a1a]/60 uppercase mt-1">Average Grade Distribution / Semester 1</p>
+</div>
+<div class="flex gap-2">
+<span class="flex items-center gap-1 text-xs font-bold px-2 py-1 bg-[#ffcc00] border-2 border-[#1a1a1a]">MATH</span>
+<span class="flex items-center gap-1 text-xs font-bold px-2 py-1 bg-[#0055ff] text-white border-2 border-[#1a1a1a]">SCIENCE</span>
+</div>
+</div>
+<div class="h-64 flex items-end gap-4 pb-4 border-b-4 border-[#1a1a1a]">
+<!-- Bar Groups -->
+<div class="flex-1 flex flex-col items-center gap-2">
+<div class="w-full flex items-end justify-center gap-1 h-full">
+<div class="w-1/3 bg-[#ffcc00] border-2 border-[#1a1a1a]" style="height: 85%;"></div>
+<div class="w-1/3 bg-[#0055ff] border-2 border-[#1a1a1a]" style="height: 70%;"></div>
+</div>
+<span class="text-[10px] font-black uppercase">XII-A</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2">
+<div class="w-full flex items-end justify-center gap-1 h-full">
+<div class="w-1/3 bg-[#ffcc00] border-2 border-[#1a1a1a]" style="height: 92%;"></div>
+<div class="w-1/3 bg-[#0055ff] border-2 border-[#1a1a1a]" style="height: 88%;"></div>
+</div>
+<span class="text-[10px] font-black uppercase">XII-B</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2">
+<div class="w-full flex items-end justify-center gap-1 h-full">
+<div class="w-1/3 bg-[#ffcc00] border-2 border-[#1a1a1a]" style="height: 65%;"></div>
+<div class="w-1/3 bg-[#0055ff] border-2 border-[#1a1a1a]" style="height: 95%;"></div>
+</div>
+<span class="text-[10px] font-black uppercase">XII-C</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2">
+<div class="w-full flex items-end justify-center gap-1 h-full">
+<div class="w-1/3 bg-[#ffcc00] border-2 border-[#1a1a1a]" style="height: 78%;"></div>
+<div class="w-1/3 bg-[#0055ff] border-2 border-[#1a1a1a]" style="height: 72%;"></div>
+</div>
+<span class="text-[10px] font-black uppercase">XII-D</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2">
+<div class="w-full flex items-end justify-center gap-1 h-full">
+<div class="w-1/3 bg-[#ffcc00] border-2 border-[#1a1a1a]" style="height: 88%;"></div>
+<div class="w-1/3 bg-[#0055ff] border-2 border-[#1a1a1a]" style="height: 82%;"></div>
+</div>
+<span class="text-[10px] font-black uppercase">XII-E</span>
+</div>
+</div>
+</div>
+<!-- Attendance Heatmap Card -->
+<div class="col-span-12 lg:col-span-5 bg-white border-4 border-[#1a1a1a] shadow-[8px_8px_0px_0px_#1a1a1a] p-6 flex flex-col">
+<h2 class="text-3xl font-black uppercase mb-1">Attendance Heatmap</h2>
+<p class="text-sm font-bold text-[#1a1a1a]/60 uppercase mb-6">Student presence activity last 4 weeks</p>
+<div class="flex-1 grid grid-cols-7 gap-2">
+<!-- Header Days -->
+<div class="text-[10px] font-black text-center">MON</div>
+<div class="text-[10px] font-black text-center">TUE</div>
+<div class="text-[10px] font-black text-center">WED</div>
+<div class="text-[10px] font-black text-center">THU</div>
+<div class="text-[10px] font-black text-center">FRI</div>
+<div class="text-[10px] font-black text-center">SAT</div>
+<div class="text-[10px] font-black text-center">SUN</div>
+<!-- Heatmap Squares (Mocked) -->
+<div class="aspect-square bg-[#ffcc00] border-2 border-[#1a1a1a]"></div>
+<div class="aspect-square bg-[#ffcc00] border-2 border-[#1a1a1a]"></div>
+<div class="aspect-square bg-[#ffcc00] border-2 border-[#1a1a1a]"></div>
+<div class="aspect-square bg-[#0055ff] border-2 border-[#1a1a1a]"></div>
+<div class="aspect-square bg-[#ffcc00] border-2 border-[#1a1a1a]"></div>
+<div class="aspect-square bg-[#f5f0e8] border-2 border-[#1a1a1a]"></div>
+<div class="aspect-square bg-[#f5f0e8] border-2 border-[#1a1a1a]"></div>
+<div class="aspect-square bg-[#ffcc00] border-2 border-[#1a1a1a]"></div>
+<div class="aspect-square bg-[#ffcc00] border-2 border-[#1a1a1a]"></div>
+<div class="aspect-square bg-[#ffcc00] border-2 border-[#1a1a1a]"></div>
+<div class="aspect-square bg-[#ffcc00] border-2 border-[#1a1a1a]"></div>
+<div class="aspect-square bg-[#e63b2e] border-2 border-[#1a1a1a]"></div>
+<div class="aspect-square bg-[#f5f0e8] border-2 border-[#1a1a1a]"></div>
+<div class="aspect-square bg-[#f5f0e8] border-2 border-[#1a1a1a]"></div>
+<div class="aspect-square bg-[#0055ff] border-2 border-[#1a1a1a]"></div>
+<div class="aspect-square bg-[#ffcc00] border-2 border-[#1a1a1a]"></div>
+<div class="aspect-square bg-[#ffcc00] border-2 border-[#1a1a1a]"></div>
+<div class="aspect-square bg-[#ffcc00] border-2 border-[#1a1a1a]"></div>
+<div class="aspect-square bg-[#ffcc00] border-2 border-[#1a1a1a]"></div>
+<div class="aspect-square bg-[#f5f0e8] border-2 border-[#1a1a1a]"></div>
+<div class="aspect-square bg-[#f5f0e8] border-2 border-[#1a1a1a]"></div>
+<div class="aspect-square bg-[#ffcc00] border-2 border-[#1a1a1a]"></div>
+<div class="aspect-square bg-[#ffcc00] border-2 border-[#1a1a1a]"></div>
+<div class="aspect-square bg-[#ffcc00] border-2 border-[#1a1a1a]"></div>
+<div class="aspect-square bg-[#ffcc00] border-2 border-[#1a1a1a]"></div>
+<div class="aspect-square bg-[#ffcc00] border-2 border-[#1a1a1a]"></div>
+<div class="aspect-square bg-[#f5f0e8] border-2 border-[#1a1a1a]"></div>
+<div class="aspect-square bg-[#f5f0e8] border-2 border-[#1a1a1a]"></div>
+</div>
+<div class="mt-4 flex items-center justify-between">
+<div class="flex gap-2 items-center">
+<span class="w-3 h-3 bg-[#f5f0e8] border border-[#1a1a1a]"></span>
+<span class="w-3 h-3 bg-[#ffcc00]/40 border border-[#1a1a1a]"></span>
+<span class="w-3 h-3 bg-[#ffcc00] border border-[#1a1a1a]"></span>
+<span class="text-[10px] font-bold uppercase">Presence Level</span>
+</div>
+<div class="flex gap-2 items-center">
+<span class="w-3 h-3 bg-[#e63b2e] border border-[#1a1a1a]"></span>
+<span class="text-[10px] font-bold uppercase">Alert</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Automated Document Engine -->
+<section class="bg-[#1a1a1a] text-white p-8 border-4 border-[#1a1a1a] shadow-[8px_8px_0px_0px_#ffcc00]">
+<div class="flex flex-col lg:flex-row gap-12">
+<div class="lg:w-1/3">
+<h2 class="text-4xl font-black uppercase mb-4 text-[#ffcc00]">Document Engine</h2>
+<p class="text-lg font-light leading-snug mb-8">Select students to automate the generation of Raport cards, disciplinary letters, or academic achievement certificates.</p>
+<button class="w-full bg-[#ffcc00] text-[#1a1a1a] border-4 border-white py-6 px-4 font-black text-2xl uppercase hover:bg-white transition-none active:translate-x-2 active:translate-y-2 flex items-center justify-center gap-4">
+<span class="material-symbols-outlined text-4xl">settings_applications</span>
+                            Generate Reports
+                        </button>
+</div>
+<div class="lg:w-2/3 bg-[#f5f0e8] text-[#1a1a1a] border-4 border-white">
+<div class="grid grid-cols-1 md:grid-cols-2">
+<!-- Student List Item -->
+<div class="p-4 border-b-2 border-[#1a1a1a] md:border-r-2 flex items-center justify-between hover:bg-[#ffcc00] transition-none group cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-4 h-4 border-2 border-[#1a1a1a] group-hover:bg-[#1a1a1a]"></div>
+<div>
+<p class="font-black uppercase text-sm">Aditya Pratama</p>
+<p class="text-[10px] font-bold opacity-60">ID: 202400192</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-sm">description</span>
+</div>
+<div class="p-4 border-b-2 border-[#1a1a1a] flex items-center justify-between hover:bg-[#ffcc00] transition-none group cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-4 h-4 border-2 border-[#1a1a1a] group-hover:bg-[#1a1a1a]"></div>
+<div>
+<p class="font-black uppercase text-sm">Bela Safira</p>
+<p class="text-[10px] font-bold opacity-60">ID: 202400185</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-sm">description</span>
+</div>
+<div class="p-4 border-b-2 border-[#1a1a1a] md:border-r-2 flex items-center justify-between hover:bg-[#ffcc00] transition-none group cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-4 h-4 border-2 border-[#1a1a1a] bg-[#1a1a1a]"></div>
+<div>
+<p class="font-black uppercase text-sm">Cahyo Utomo</p>
+<p class="text-[10px] font-bold opacity-60">ID: 202400201</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-sm text-[#0055ff]">check_circle</span>
+</div>
+<div class="p-4 border-b-2 border-[#1a1a1a] flex items-center justify-between hover:bg-[#ffcc00] transition-none group cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-4 h-4 border-2 border-[#1a1a1a] bg-[#1a1a1a]"></div>
+<div>
+<p class="font-black uppercase text-sm">Dina Mariana</p>
+<p class="text-[10px] font-bold opacity-60">ID: 202400177</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-sm text-[#0055ff]">check_circle</span>
+</div>
+<div class="p-4 border-b-2 border-[#1a1a1a] md:border-r-2 flex items-center justify-between hover:bg-[#ffcc00] transition-none group cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-4 h-4 border-2 border-[#1a1a1a] group-hover:bg-[#1a1a1a]"></div>
+<div>
+<p class="font-black uppercase text-sm">Eka Kurniawan</p>
+<p class="text-[10px] font-bold opacity-60">ID: 202400210</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-sm">description</span>
+</div>
+<div class="p-4 border-b-2 border-[#1a1a1a] flex items-center justify-between hover:bg-[#ffcc00] transition-none group cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-4 h-4 border-2 border-[#1a1a1a] group-hover:bg-[#1a1a1a]"></div>
+<div>
+<p class="font-black uppercase text-sm">Fajar Sidik</p>
+<p class="text-[10px] font-bold opacity-60">ID: 202400199</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-sm">description</span>
+</div>
+</div>
+<div class="p-4 text-center bg-[#1a1a1a] text-white">
+<p class="text-[10px] font-black uppercase tracking-widest cursor-pointer hover:text-[#ffcc00]">View All 32 Students In XII IPA 1</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Quick Metrics Grid -->
+<section class="grid grid-cols-1 md:grid-cols-4 gap-6">
+<div class="bg-white border-4 border-[#1a1a1a] p-6 hover:bg-[#0055ff] hover:text-white transition-none group">
+<p class="text-xs font-black uppercase">Overall Avg Grade</p>
+<p class="text-5xl font-black mt-2 font-headline">8.42</p>
+<div class="mt-4 flex items-center gap-2">
+<span class="material-symbols-outlined group-hover:text-[#ffcc00]">trending_up</span>
+<span class="text-[10px] font-bold">+0.15 from Prev. Term</span>
+</div>
+</div>
+<div class="bg-white border-4 border-[#1a1a1a] p-6 hover:bg-[#e63b2e] hover:text-white transition-none group">
+<p class="text-xs font-black uppercase">Low Performance</p>
+<p class="text-5xl font-black mt-2 font-headline">03</p>
+<div class="mt-4 flex items-center gap-2">
+<span class="material-symbols-outlined">warning</span>
+<span class="text-[10px] font-bold">Needs Immediate Review</span>
+</div>
+</div>
+<div class="bg-white border-4 border-[#1a1a1a] p-6 hover:bg-[#ffcc00] transition-none group">
+<p class="text-xs font-black uppercase">Avg Attendance</p>
+<p class="text-5xl font-black mt-2 font-headline">94%</p>
+<div class="mt-4 flex items-center gap-2">
+<span class="material-symbols-outlined">done_all</span>
+<span class="text-[10px] font-bold">Target: 95%</span>
+</div>
+</div>
+<div class="bg-white border-4 border-[#1a1a1a] p-6 hover:bg-[#1a1a1a] hover:text-white transition-none group">
+<p class="text-xs font-black uppercase">Reports Ready</p>
+<p class="text-5xl font-black mt-2 font-headline">12</p>
+<div class="mt-4 flex items-center gap-2">
+<span class="material-symbols-outlined">print</span>
+<span class="text-[10px] font-bold">Pending: 20 Students</span>
+</div>
+</div>
+</section>
+</div>
+<footer class="mt-auto p-8 flex justify-between items-center bg-[#1a1a1a] text-white">
+<p class="text-[10px] font-bold uppercase tracking-widest opacity-60">© 2024 E-Raport AI Systems • Education Framework</p>
+<div class="flex gap-4">
+<span class="text-[10px] font-black uppercase border-b-2 border-[#ffcc00]">System Logs</span>
+<span class="text-[10px] font-black uppercase border-b-2 border-white">Developer API</span>
+</div>
+</footer>
+</main>
+</body></html>

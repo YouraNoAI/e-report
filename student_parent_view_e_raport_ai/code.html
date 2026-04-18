@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-on-surface": "#f5f0e8",
+                    "tertiary-fixed-dim": "#a8c6ff",
+                    "on-error-container": "#93000a",
+                    "secondary-fixed": "#ffdad6",
+                    "primary-container": "#ffcc00",
+                    "secondary-container": "#ffdad6",
+                    "tertiary-fixed": "#d6e3ff",
+                    "primary-fixed-dim": "#e6b800",
+                    "error-container": "#ffdad6",
+                    "error": "#cc0000",
+                    "surface-tint": "#1a1a1a",
+                    "on-secondary-container": "#1a1a1a",
+                    "on-secondary-fixed-variant": "#1a1a1a",
+                    "surface-container-low": "#f2ede5",
+                    "surface-container": "#eee9e0",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-container": "#1a1a1a",
+                    "on-secondary-fixed": "#1a1a1a",
+                    "tertiary-container": "#d6e3ff",
+                    "on-secondary": "#1a1a1a",
+                    "primary-fixed": "#ffcc00",
+                    "outline-variant": "#d0cbc3",
+                    "surface-container-high": "#e8e3da",
+                    "on-tertiary-fixed": "#1a1a1a",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "secondary": "#e63b2e",
+                    "on-primary-fixed": "#1a1a1a",
+                    "on-surface-variant": "#4a4a4a",
+                    "surface-bright": "#faf7f2",
+                    "background": "#f5f0e8",
+                    "outline": "#1a1a1a",
+                    "inverse-primary": "#f5f0e8",
+                    "surface-variant": "#e8e3da",
+                    "on-primary-fixed-variant": "#1a1a1a",
+                    "surface-container-highest": "#e2ddd4",
+                    "on-surface": "#1a1a1a",
+                    "on-primary-container": "#1a1a1a",
+                    "on-error": "#ffffff",
+                    "on-background": "#1a1a1a",
+                    "tertiary": "#0055ff",
+                    "on-tertiary-fixed-variant": "#1a1a1a",
+                    "surface-dim": "#d6d1c9",
+                    "inverse-surface": "#1a1a1a",
+                    "secondary-fixed-dim": "#ffb3ab",
+                    "primary": "#1a1a1a",
+                    "surface": "#f5f0e8"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Space Grotesk"],
+                    "body": ["Inter"],
+                    "label": ["Space Grotesk"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, .font-headline { font-family: 'Space Grotesk', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen">
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-[#f5f0e8] border-b-4 border-[#1a1a1a] flex justify-between items-center w-full px-8 py-4 shadow-[4px_4px_0px_0px_#1a1a1a]">
+<div class="flex items-center gap-4">
+<span class="text-3xl font-black tracking-tighter text-[#1a1a1a] font-['Space_Grotesk'] uppercase">E-Raport AI</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex items-center gap-8 font-['Space_Grotesk'] font-bold uppercase">
+<a class="text-[#ffcc00] font-black underline decoration-4" href="#">Dashboard</a>
+<a class="text-[#1a1a1a] hover:bg-[#1a1a1a] hover:text-[#ffcc00] transition-none p-1" href="#">Grades</a>
+<a class="text-[#1a1a1a] hover:bg-[#1a1a1a] hover:text-[#ffcc00] transition-none p-1" href="#">Attendance</a>
+</div>
+<div class="flex items-center gap-4 border-l-2 border-[#1a1a1a] pl-6">
+<button class="material-symbols-outlined text-[#1a1a1a] active:translate-x-[2px] active:translate-y-[2px]">notifications</button>
+<div class="flex items-center gap-3">
+<div class="text-right hidden sm:block">
+<p class="text-xs font-black uppercase leading-none">Alex Johnson</p>
+<p class="text-[10px] font-bold text-on-surface-variant uppercase">Student • 12-B</p>
+</div>
+<img alt="User profile" class="w-10 h-10 border-2 border-[#1a1a1a] object-cover" data-alt="Close-up portrait of a young male student with a neutral expression against a clean, minimalist architectural background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzlzjkITjf99McqyB9GURriHcRlQueNCkMZEi8uzPwViUmytfETqQJllhvEjFZquTnSHNjyTXviTst0KDbpl8wnvjFUceBRgyxcY3p_UuWUgQ280H63fQNF5Ki8Fg6llLJDtjMUjb0eaTeXIbm9EFYDsiCv9X5cQkJWIHPXF72CIJfQ7use9JC9tAFsuccnxNtUot5hrtcv2fuRQQWiZXWnrwciYGqBgEm3jXlS_GCfiehp-nFmUpRZqiThnKDedu3mpIZYZpAQzze"/>
+</div>
+</div>
+</div>
+</header>
+<!-- SideNavBar (Desktop Only) -->
+<aside class="fixed left-0 top-0 h-full hidden lg:flex flex-col z-40 bg-[#f5f0e8] w-64 border-r-4 border-[#1a1a1a] pt-24">
+<nav class="flex-1 font-['Space_Grotesk'] font-bold uppercase">
+<a class="bg-[#ffcc00] text-[#1a1a1a] border-2 border-[#1a1a1a] m-2 p-3 flex items-center gap-3 shadow-[4px_4px_0px_0px_#1a1a1a] active:translate-x-1 active:translate-y-1" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 p-3 m-2 text-[#1a1a1a] hover:bg-[#0055ff] hover:text-white transition-none active:translate-x-1 active:translate-y-1" href="#">
+<span class="material-symbols-outlined">grade</span>
+<span>Grades</span>
+</a>
+<a class="flex items-center gap-3 p-3 m-2 text-[#1a1a1a] hover:bg-[#0055ff] hover:text-white transition-none active:translate-x-1 active:translate-y-1" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span>Attendance</span>
+</a>
+<a class="flex items-center gap-3 p-3 m-2 text-[#1a1a1a] hover:bg-[#0055ff] hover:text-white transition-none active:translate-x-1 active:translate-y-1" href="#">
+<span class="material-symbols-outlined">assessment</span>
+<span>Reports</span>
+</a>
+</nav>
+<div class="p-4 border-t-4 border-[#1a1a1a] font-['Space_Grotesk'] font-bold uppercase">
+<a class="flex items-center gap-3 p-3 text-[#1a1a1a] hover:bg-[#e63b2e] hover:text-white transition-none" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Settings</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-secondary hover:bg-secondary hover:text-white transition-none" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="pt-32 pb-12 px-6 lg:ml-64">
+<div class="max-w-7xl mx-auto">
+<!-- Hero Header -->
+<section class="mb-12">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<h1 class="text-6xl md:text-8xl font-black uppercase tracking-tighter leading-[0.9] text-primary">
+                            Term 2 <br/> Performance
+                        </h1>
+<p class="mt-4 text-xl font-bold border-l-4 border-tertiary pl-4 max-w-xl uppercase">
+                            Your academic journey, quantified and analyzed by AI. Current GPA: <span class="text-tertiary">3.85</span>
+</p>
+</div>
+<div class="bg-primary text-primary-container p-6 border-4 border-primary shadow-[8px_8px_0px_0px_#0055ff]">
+<p class="text-xs font-black uppercase mb-1">Next Major Exam</p>
+<p class="text-2xl font-black uppercase">Advanced Physics</p>
+<p class="font-bold">May 14th • 09:00 AM</p>
+</div>
+</div>
+</section>
+<!-- Bento Grid - Grade Insights -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-6 mb-12">
+<!-- AI Insight Card -->
+<div class="md:col-span-8 bg-white border-4 border-primary p-8 relative overflow-hidden flex flex-col justify-between shadow-[8px_8px_0px_0px_#1a1a1a]">
+<div class="relative z-10">
+<div class="flex items-center gap-2 mb-6">
+<span class="bg-primary text-primary-container text-xs font-black px-2 py-1 uppercase">AI Insight</span>
+<span class="text-xs font-bold uppercase text-on-surface-variant">Updated 2h ago</span>
+</div>
+<h3 class="text-4xl font-black uppercase leading-tight mb-4">You are excelling in Mathematics but showing slight decay in Literature focus.</h3>
+<p class="text-lg font-medium text-on-surface-variant max-w-2xl mb-8">Data trends suggest a 15% increase in study time for 'Victorian Poetry' will stabilize your humanities average before finals.</p>
+</div>
+<div class="flex gap-4">
+<button class="bg-tertiary text-white border-2 border-primary px-6 py-3 font-black uppercase flex items-center gap-2 active:translate-x-1 active:translate-y-1">
+                            Full Analysis <span class="material-symbols-outlined">trending_up</span>
+</button>
+</div>
+<!-- Abstract Background Shape -->
+<div class="absolute -bottom-10 -right-10 w-48 h-48 bg-[#ffcc00] -rotate-12 border-4 border-primary"></div>
+</div>
+<!-- Attendance Summary Ring -->
+<div class="md:col-span-4 bg-[#ffcc00] border-4 border-primary p-8 flex flex-col items-center justify-center text-center shadow-[8px_8px_0px_0px_#1a1a1a]">
+<h4 class="text-xl font-black uppercase mb-6">Attendance Summary</h4>
+<div class="relative w-40 h-40 flex items-center justify-center mb-6">
+<svg class="w-full h-full transform -rotate-90">
+<circle cx="80" cy="80" fill="transparent" r="70" stroke="white" stroke-width="12"></circle>
+<circle cx="80" cy="80" fill="transparent" r="70" stroke="#1a1a1a" stroke-dasharray="440" stroke-dashoffset="22" stroke-width="12"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-4xl font-black">95%</span>
+<span class="text-[10px] font-bold uppercase">Present</span>
+</div>
+</div>
+<p class="font-bold uppercase text-sm">3 Days Excused</p>
+<p class="font-bold uppercase text-sm">0 Unexcused</p>
+</div>
+<!-- Subject Grid -->
+<div class="md:col-span-4 bg-white border-4 border-primary p-6 shadow-[8px_8px_0px_0px_#1a1a1a]">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-4xl">functions</span>
+<span class="text-2xl font-black">A+</span>
+</div>
+<h5 class="text-xl font-black uppercase">Mathematics</h5>
+<p class="text-xs font-bold text-on-surface-variant uppercase mb-4">Top 5% of Class</p>
+<div class="h-2 w-full bg-surface-container border-2 border-primary">
+<div class="h-full bg-[#0055ff] w-[98%]"></div>
+</div>
+</div>
+<div class="md:col-span-4 bg-white border-4 border-primary p-6 shadow-[8px_8px_0px_0px_#1a1a1a]">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-4xl">science</span>
+<span class="text-2xl font-black">A-</span>
+</div>
+<h5 class="text-xl font-black uppercase">Physics</h5>
+<p class="text-xs font-bold text-on-surface-variant uppercase mb-4">Consistent Growth</p>
+<div class="h-2 w-full bg-surface-container border-2 border-primary">
+<div class="h-full bg-secondary w-[91%]"></div>
+</div>
+</div>
+<div class="md:col-span-4 bg-white border-4 border-primary p-6 shadow-[8px_8px_0px_0px_#1a1a1a]">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-4xl">history_edu</span>
+<span class="text-2xl font-black text-secondary">B+</span>
+</div>
+<h5 class="text-xl font-black uppercase">Literature</h5>
+<p class="text-xs font-bold text-on-surface-variant uppercase mb-4">Needs Attention</p>
+<div class="h-2 w-full bg-surface-container border-2 border-primary">
+<div class="h-full bg-primary w-[84%]"></div>
+</div>
+</div>
+</section>
+<!-- Activity & Recent Grades -->
+<section class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+<div>
+<h2 class="text-4xl font-black uppercase mb-8 flex items-center gap-4">
+                        Recent Grades
+                        <div class="h-1 flex-1 bg-primary"></div>
+</h2>
+<div class="space-y-4">
+<div class="flex items-center justify-between p-4 bg-white border-2 border-primary">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-primary-container border-2 border-primary flex items-center justify-center">
+<span class="material-symbols-outlined">quiz</span>
+</div>
+<div>
+<p class="font-black uppercase">Calculus Quiz 4</p>
+<p class="text-xs font-bold text-on-surface-variant">May 10, 2024</p>
+</div>
+</div>
+<span class="text-xl font-black">98/100</span>
+</div>
+<div class="flex items-center justify-between p-4 bg-white border-2 border-primary">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-secondary-container border-2 border-primary flex items-center justify-center">
+<span class="material-symbols-outlined">article</span>
+</div>
+<div>
+<p class="font-black uppercase">History Essay</p>
+<p class="text-xs font-bold text-on-surface-variant">May 08, 2024</p>
+</div>
+</div>
+<span class="text-xl font-black">88/100</span>
+</div>
+<div class="flex items-center justify-between p-4 bg-white border-2 border-primary">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-tertiary-container border-2 border-primary flex items-center justify-center">
+<span class="material-symbols-outlined">lab_panel</span>
+</div>
+<div>
+<p class="font-black uppercase">Chem Lab Report</p>
+<p class="text-xs font-bold text-on-surface-variant">May 05, 2024</p>
+</div>
+</div>
+<span class="text-xl font-black">94/100</span>
+</div>
+</div>
+</div>
+<div>
+<h2 class="text-4xl font-black uppercase mb-8 flex items-center gap-4">
+                        Action Items
+                        <div class="h-1 flex-1 bg-primary"></div>
+</h2>
+<div class="space-y-4">
+<div class="bg-white border-4 border-primary p-6 flex items-start gap-4 shadow-[4px_4px_0px_0px_#1a1a1a]">
+<span class="material-symbols-outlined text-secondary text-3xl">priority_high</span>
+<div>
+<p class="font-black uppercase text-lg">Parent Signature Required</p>
+<p class="text-sm font-medium mb-4">The Mid-term progress report needs digital verification by a parent or guardian.</p>
+<button class="bg-primary text-white px-4 py-2 text-xs font-black uppercase hover:bg-secondary transition-none">Sign Now</button>
+</div>
+</div>
+<div class="bg-[#d6e3ff] border-4 border-[#0055ff] p-6 flex items-start gap-4 shadow-[4px_4px_0px_0px_#0055ff]">
+<span class="material-symbols-outlined text-tertiary text-3xl">lightbulb</span>
+<div>
+<p class="font-black uppercase text-lg text-[#0055ff]">Study Group Invite</p>
+<p class="text-sm font-medium mb-4">3 classmates are studying 'Thermodynamics' at 4PM in the Library. Join?</p>
+<button class="bg-tertiary text-white px-4 py-2 text-xs font-black uppercase hover:bg-primary transition-none">RSPV Yes</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- AI Chatbot FAB -->
+<button class="fixed bottom-8 right-8 z-50 w-20 h-20 bg-[#1a1a1a] text-[#ffcc00] border-4 border-[#ffcc00] shadow-[8px_8px_0px_0px_#1a1a1a] flex items-center justify-center hover:bg-[#ffcc00] hover:text-[#1a1a1a] transition-none group active:translate-x-2 active:translate-y-2 active:shadow-none">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+<!-- Tooltip -->
+<div class="absolute right-24 bg-primary text-white px-4 py-2 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity border-2 border-white font-black uppercase text-xs">
+            Ask AI Assistant
+        </div>
+</button>
+<!-- Mobile BottomNavBar -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#f5f0e8] border-t-4 border-[#1a1a1a] flex justify-around items-center py-4">
+<button class="flex flex-col items-center gap-1 text-[#ffcc00]">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="text-[10px] font-black uppercase">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-[#1a1a1a]">
+<span class="material-symbols-outlined text-2xl">grade</span>
+<span class="text-[10px] font-black uppercase">Grades</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-[#1a1a1a]">
+<span class="material-symbols-outlined text-2xl">calendar_today</span>
+<span class="text-[10px] font-black uppercase">Attend</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-[#1a1a1a]">
+<span class="material-symbols-outlined text-2xl">person</span>
+<span class="text-[10px] font-black uppercase">Profile</span>
+</button>
+</nav>
+</body></html>

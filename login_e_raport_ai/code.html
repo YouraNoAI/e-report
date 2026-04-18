@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>E-Raport AI - Login</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-on-surface": "#f5f0e8",
+                        "tertiary-fixed-dim": "#a8c6ff",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed": "#ffdad6",
+                        "primary-container": "#ffcc00",
+                        "secondary-container": "#ffdad6",
+                        "tertiary-fixed": "#d6e3ff",
+                        "primary-fixed-dim": "#e6b800",
+                        "error-container": "#ffdad6",
+                        "error": "#cc0000",
+                        "surface-tint": "#1a1a1a",
+                        "on-secondary-container": "#1a1a1a",
+                        "on-secondary-fixed-variant": "#1a1a1a",
+                        "surface-container-low": "#f2ede5",
+                        "surface-container": "#eee9e0",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-container": "#1a1a1a",
+                        "on-secondary-fixed": "#1a1a1a",
+                        "tertiary-container": "#d6e3ff",
+                        "on-secondary": "#1a1a1a",
+                        "primary-fixed": "#ffcc00",
+                        "outline-variant": "#d0cbc3",
+                        "surface-container-high": "#e8e3da",
+                        "on-tertiary-fixed": "#1a1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "secondary": "#e63b2e",
+                        "on-primary-fixed": "#1a1a1a",
+                        "on-surface-variant": "#4a4a4a",
+                        "surface-bright": "#faf7f2",
+                        "background": "#f5f0e8",
+                        "outline": "#1a1a1a",
+                        "inverse-primary": "#f5f0e8",
+                        "surface-variant": "#e8e3da",
+                        "on-primary-fixed-variant": "#1a1a1a",
+                        "surface-container-highest": "#e2ddd4",
+                        "on-surface": "#1a1a1a",
+                        "on-primary-container": "#1a1a1a",
+                        "on-error": "#ffffff",
+                        "on-background": "#1a1a1a",
+                        "tertiary": "#0055ff",
+                        "on-tertiary-fixed-variant": "#1a1a1a",
+                        "surface-dim": "#d6d1c9",
+                        "inverse-surface": "#1a1a1a",
+                        "secondary-fixed-dim": "#ffb3ab",
+                        "primary": "#1a1a1a",
+                        "surface": "#f5f0e8"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "0px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Space Grotesk"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bauhaus-grid {
+            background-image: 
+                linear-gradient(#1a1a1a 1px, transparent 1px),
+                linear-gradient(90deg, #1a1a1a 1px, transparent 1px);
+            background-size: 40px 40px;
+            opacity: 0.05;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body min-h-screen flex flex-col md:flex-row overflow-x-hidden">
+<!-- Left Hero Section -->
+<section class="relative w-full md:w-1/2 lg:w-3/5 bg-primary-container min-h-[409px] md:min-h-screen flex flex-col justify-center p-8 md:p-16 lg:p-24 border-b-4 md:border-b-0 md:border-r-4 border-outline overflow-hidden">
+<div class="bauhaus-grid absolute inset-0 pointer-events-none"></div>
+<!-- Bauhaus Decorative Elements -->
+<div class="absolute top-10 left-10 w-24 h-24 bg-secondary border-4 border-outline -z-10 transform -rotate-12"></div>
+<div class="absolute bottom-20 right-10 w-32 h-32 rounded-full bg-tertiary border-4 border-outline -z-10"></div>
+<div class="absolute top-1/2 right-20 w-48 h-8 bg-outline -z-10 transform rotate-45"></div>
+<div class="relative z-10 max-w-2xl">
+<h1 class="font-headline font-black text-6xl md:text-8xl leading-none tracking-tighter text-outline mb-8">
+                E-RAPORT<br/>AI
+            </h1>
+<div class="h-4 w-32 bg-secondary border-2 border-outline mb-8"></div>
+<p class="font-headline font-bold text-2xl md:text-4xl text-outline uppercase leading-tight max-w-lg">
+                AI-Powered Education Management
+            </p>
+<div class="mt-12 space-y-4">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-4xl" data-icon="auto_awesome">auto_awesome</span>
+<span class="font-headline font-bold text-lg uppercase tracking-widest">Automated Grading</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-4xl" data-icon="analytics">analytics</span>
+<span class="font-headline font-bold text-lg uppercase tracking-widest">Performance Insights</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-4xl" data-icon="security">security</span>
+<span class="font-headline font-bold text-lg uppercase tracking-widest">Secure Records</span>
+</div>
+</div>
+</div>
+<div class="absolute bottom-8 left-8 md:left-16 flex items-center gap-2">
+<div class="w-4 h-4 bg-secondary border-2 border-outline"></div>
+<span class="font-headline font-black text-sm uppercase tracking-tighter">System Version 2.0.4</span>
+</div>
+</section>
+<!-- Right Login Section -->
+<main class="w-full md:w-1/2 lg:w-2/5 min-h-screen flex items-center justify-center p-6 md:p-12 bg-background">
+<div class="w-full max-w-md">
+<!-- Brand Anchor - Identity -->
+<div class="mb-12 flex items-baseline gap-2">
+<span class="font-headline font-black text-3xl tracking-tighter text-outline">ER-AI</span>
+<span class="font-headline font-bold text-sm text-on-surface-variant uppercase tracking-widest">Portal Access</span>
+</div>
+<!-- Login Container -->
+<div class="bg-surface border-4 border-outline shadow-[8px_8px_0px_0px_#1a1a1a] p-8 md:p-10">
+<header class="mb-8">
+<h2 class="font-headline font-black text-4xl uppercase tracking-tight text-outline mb-2">Welcome Back</h2>
+<p class="text-on-surface-variant font-medium">Please enter your credentials to access the dashboard.</p>
+</header>
+<!-- Role Selector -->
+<div class="mb-8">
+<label class="font-headline font-bold text-xs uppercase tracking-widest text-outline mb-3 block">Access Role</label>
+<div class="grid grid-cols-3 border-2 border-outline">
+<button class="py-3 px-2 font-headline font-black text-[10px] uppercase tracking-tighter bg-primary-container text-outline border-r-2 border-outline hover:bg-primary-container transition-colors">
+                            Teacher
+                        </button>
+<button class="py-3 px-2 font-headline font-black text-[10px] uppercase tracking-tighter bg-surface text-on-surface-variant border-r-2 border-outline hover:bg-surface-variant transition-colors">
+                            Student
+                        </button>
+<button class="py-3 px-2 font-headline font-black text-[10px] uppercase tracking-tighter bg-surface text-on-surface-variant hover:bg-surface-variant transition-colors">
+                            Admin
+                        </button>
+</div>
+</div>
+<!-- Form -->
+<form class="space-y-6">
+<div>
+<label class="font-headline font-bold text-xs uppercase tracking-widest text-outline mb-2 block" for="username">Username / Email</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-0 bottom-3 text-outline" data-icon="person">person</span>
+<input class="w-full pl-8 pb-2 pt-2 bg-transparent border-t-0 border-x-0 border-b-2 border-outline focus:ring-0 focus:border-tertiary font-medium placeholder:text-on-surface-variant/50" id="username" name="username" placeholder="e.g. j.doe@school.edu" type="text"/>
+</div>
+</div>
+<div>
+<label class="font-headline font-bold text-xs uppercase tracking-widest text-outline mb-2 block" for="password">Password</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-0 bottom-3 text-outline" data-icon="lock">lock</span>
+<input class="w-full pl-8 pb-2 pt-2 bg-transparent border-t-0 border-x-0 border-b-2 border-outline focus:ring-0 focus:border-tertiary font-medium placeholder:text-on-surface-variant/50" id="password" name="password" placeholder="••••••••" type="password"/>
+<button class="absolute right-0 bottom-3" type="button">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="visibility">visibility</span>
+</button>
+</div>
+</div>
+<div class="flex items-center justify-between py-2">
+<label class="flex items-center gap-2 cursor-pointer group">
+<input class="w-5 h-5 border-2 border-outline text-tertiary focus:ring-0 rounded-none bg-surface" type="checkbox"/>
+<span class="font-headline font-bold text-xs uppercase tracking-tight text-outline group-hover:text-tertiary">Remember Me</span>
+</label>
+<a class="font-headline font-bold text-xs uppercase tracking-tight text-tertiary hover:underline decoration-2" href="#">Forgot Password?</a>
+</div>
+<button class="w-full group relative bg-secondary text-on-primary border-2 border-outline py-4 font-headline font-black text-lg uppercase tracking-widest shadow-[4px_4px_0px_0px_#1a1a1a] active:shadow-none active:translate-x-1 active:translate-y-1 transition-all" type="submit">
+<span class="relative z-10 flex items-center justify-center gap-2">
+                            Login To Dashboard
+                            <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</span>
+<div class="absolute inset-0 bg-outline opacity-0 group-hover:opacity-10 transition-opacity"></div>
+</button>
+</form>
+<footer class="mt-10 pt-8 border-t-2 border-outline/10 text-center">
+<p class="text-on-surface-variant font-medium text-sm">
+                        New school registration? 
+                        <a class="text-tertiary font-bold hover:underline decoration-2 ml-1" href="#">Contact Administrator</a>
+</p>
+</footer>
+</div>
+<!-- Supporting Text / Trust Marks -->
+<div class="mt-12 grid grid-cols-2 gap-4">
+<div class="p-4 border-2 border-outline/20">
+<img class="h-8 object-contain opacity-50 grayscale hover:grayscale-0 transition-all cursor-pointer" data-alt="minimalist logo for school board certification with clean lines and geometric shapes in black and white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBG9wdUbMtM3UPvoIhGr9OxIG5O0SnIcIkM_mbXpgWkKkc3MzHjo_2t605XZGOUWlPo54kHbD0IWrBKb4fUKZRrHe9eTDzhe5CE7vLqP8sAkQkN2yg6PfvhuNM4MWoXNT40uXduvanVHIj57TO83BuZqtARz3GBsAUjfsXGsEujEVakI9kWMv5R5VD8GE1CDm6WsPKz4h0D1ljRwQEtzH7154rjZ04mbm6JKLP3OigOPDi-JG3oLrzxLCkX4wOKly6l-yZ-N11jldHj"/>
+</div>
+<div class="p-4 border-2 border-outline/20">
+<img class="h-8 object-contain opacity-50 grayscale hover:grayscale-0 transition-all cursor-pointer" data-alt="minimalist cybersecurity trust badge featuring a shield icon and padlock in a brutalist vector style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWHMZnaxqP18VmSHAmaeGQxE7Nov2FZcN2ssdhSDoUCcFRUMqHMD_pSSHWdO0l9ZMFRN5bLfYV3yKGUaYGwg2tJl4NqkFxlSeJL7_WmJfA6Y_jWjPH83ZqtR8lurSwXKcbgSQRQ50PqkLgXWfQb6vRTWsTqPrOOZwPMnz_RzpGE2QsBnUm6KGkEZW52qhDbXp7OWAq78T_dOXpNXiIF7qiPdCfHPKGhWnIJn8hhu5YZyNYxjZn43o2lcDD-RduFZdASO4vhhMZIQzy"/>
+</div>
+</div>
+</div>
+</main>
+<!-- Contextual Elements: Corner Decor -->
+<div class="fixed top-0 right-0 p-4 hidden lg:block">
+<div class="flex gap-4">
+<a class="font-headline font-black text-sm uppercase text-outline hover:text-tertiary" href="#">Support</a>
+<a class="font-headline font-black text-sm uppercase text-outline hover:text-tertiary" href="#">Docs</a>
+</div>
+</div>
+</body></html>
