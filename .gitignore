@@ -1,0 +1,11 @@
+# Exclude crewai_company folder
+crewai_company/
+
+# Other common ignores
+node_modules/
+dist/
+build/
+.env
+.env.local
+*.log
+.DS_Store
