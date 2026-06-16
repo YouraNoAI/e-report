@@ -1,0 +1,91 @@
+debate_topics:
+  - id: DEB-01
+    title: "Data Architecture: Mock vs Real Firestore"
+    proposer: "product_owner"
+    problem: "Dashboard and Reports used mock data until recently. This misleads stakeholders and makes demos inconsistent with real data."
+    positions:
+      - role: "tech_lead"
+        stance: "Real queries need composite indexes, which take time to create. Mock data allows rapid UI iteration without waiting for Firebase. We've now fixed this."
+      - role: "qa_lead"
+        stance: "Mock data prevents deterministic testing. Tests pass against mock but fail against real Firestore. We need seed scripts + emulator for CI."
+      - role: "product_owner"
+        stance: "For production demo, data must be real. Accept mock only during active development of a new feature, not for stable pages."
+    resolution_goal: "Define policy: when mock data is acceptable vs must use real Firestore. Seed script for predictable test data."
+
+  - id: DEB-02
+    title: "RBAC Granularity: Current Implementation vs Field-Level"
+    proposer: "security_auditor"
+    problem: "Current RBAC uses role check in ProtectedRoute + service layer, but Firestore rules may not enforce field-level access."
+    positions:
+      - role: "security_auditor"
+        stance: "Need field-level Firestore rules. Example: orang_tua can only read their child's violations, not all. Current rules may be too permissive."
+      - role: "tech_lead"
+        stance: "Field-level rules in Firestore are complex and error-prone. Role-based + uid-based matching is sufficient for MVP. Custom claims are preferred."
+      - role: "product_owner"
+        stance: "7 roles with clear boundaries. Orang Tua should only see own child. Guru BK sees all. Admin sees all. This is non-negotiable for launch."
+    resolution_goal: "Define Firestore rules strategy: role-based collections vs field-level. Add custom claims. Add automated rules tests."
+
+  - id: DEB-03
+    title: "WhatsApp Integration via Baileys"
+    proposer: "product_owner"
+    problem: "School requires WhatsApp notification for parent letters and summons. Baileys is self-hosted and MIT-licensed, but has security concerns."
+    positions:
+      - role: "security_auditor"
+        stance: "Self-hosted WhatsApp bot risks session hijack. QR code auth exposed in terminal. Rate limiting needed. Isolate in Cloud Function."
+      - role: "tech_lead"
+        stance: "Baileys is the only free option. Isolate in a microservice with its own API key. No direct access from frontend. Use token-based auth for bot."
+      - role: "product_owner"
+        stance: "Critical feature. Parents must receive real-time notifications. We can accept moderate setup complexity but not security risk."
+    resolution_goal: "Architecture decision: Baileys service isolation, auth pattern, rate limiting, session persistence."
+
+  - id: DEB-04
+    title: "AI Features via OpenRouter DeepSeek"
+    proposer: "tech_lead"
+    problem: "AI features (auto-summary, rekomendasi pembinaan) use OpenRouter with DeepSeek V4 Flash. Privacy, cost, and prompt injection risks."
+    positions:
+      - role: "security_auditor"
+        stance: "Student PII in prompts is a data privacy risk. Need PII sanitization layer before sending to LLM. Prompt injection could leak data."
+      - role: "tech_lead"
+        stance: "DeepSeek V4 Flash is cheap ($0.15/M tokens). Strip PII in a sanitize() function. Use prompt templates, not raw user input. Monitor monthly cost."
+      - role: "product_owner"
+        stance: "Auto-summary of case files reduces BK workload by 60%. Worth the cost and privacy measures. Must have audit log of AI-generated content."
+    resolution_goal: "Define AI integration: prompt templates, PII sanitization, cost budget, logging requirements."
+
+  - id: DEB-05
+    title: "Offline / PWA Strategy"
+    proposer: "end_user"
+    problem: "Guru BK needs to input violations during class observation where internet is unreliable. Current app is online-only."
+    positions:
+      - role: "end_user"
+        stance: "Guru BK inputting 30 violations/day cannot lose data if connection drops. Need offline queue that syncs when online."
+      - role: "tech_lead"
+        stance: "Service Worker + IndexedDB is feasible but development time is 2-3 weeks. Firestore offline persistence handles reads but writes are queued by SDK."
+      - role: "product_owner"
+        stance: "Online-only for MVP v1. Offline v2 based on user feedback. Current 4G coverage at school is adequate."
+    resolution_goal: "Define release scope: offline deferred to v2. Firestore offline persistence enabled for reads."
+
+  - id: DEB-06
+    title: "Export & Reporting (PDF/Excel)"
+    proposer: "product_owner"
+    problem: "Reports page has Export PDF and Export Excel buttons but they are non-functional placeholders."
+    positions:
+      - role: "product_owner"
+        stance: "Critical for monthly BK reports to Kepala Sekolah. Must work before deployment. Use jsPDF + xlsx libraries."
+      - role: "tech_lead"
+        stance: "Can implement with jsPDF and xlsx on client side. No backend needed. 1-2 days implementation. Generate server-side if reports exceed 1000 rows."
+      - role: "end_user"
+        stance: "Need export with: school header, date range, signature lines for Kepala Sekolah. Excel must be filterable."
+    resolution_goal: "Define export implementation: client-side jsPDF + xlsx. Template includes branding. Schedule for next sprint."
+
+  - id: DEB-07
+    title: "Deployment & CI/CD Pipeline"
+    proposer: "tech_lead"
+    problem: "Deployment is manual via Vercel CLI. No CI/CD, no staging environment, no automated tests in pipeline."
+    positions:
+      - role: "qa_lead"
+        stance: "Every deploy should run E2E test suite first. Block deploy if regression found. Use GitHub Actions."
+      - role: "tech_lead"
+        stance: "GitHub Actions workflow: build -> test -> deploy to preview -> manual promote to prod. Firebase index deploy included."
+      - role: "product_owner"
+        stance: "Staging env needed for teacher demo without affecting production data. Weekly deploy cadence acceptable."
+    resolution_goal: "Define CI/CD: GitHub Actions workflow, staging branch, Vercel preview deployments, Firebase index sync."

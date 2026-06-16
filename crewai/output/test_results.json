@@ -1,0 +1,196 @@
+{
+  "type": "test",
+  "timestamp": "2026-06-16T08:31:40.867485",
+  "total": 27,
+  "results": [
+    {
+      "id": "REG-01",
+      "name": "Login all 7 roles",
+      "status": "simulated",
+      "agent": "qa_lead",
+      "timestamp": "2026-06-16T08:31:40.854884"
+    },
+    {
+      "id": "REG-02",
+      "name": "Violations CRUD",
+      "status": "simulated",
+      "agent": "qa_lead",
+      "timestamp": "2026-06-16T08:31:40.854922"
+    },
+    {
+      "id": "REG-03",
+      "name": "Coaching page",
+      "status": "simulated",
+      "agent": "qa_lead",
+      "timestamp": "2026-06-16T08:31:40.854935"
+    },
+    {
+      "id": "REG-04",
+      "name": "Cases page",
+      "status": "simulated",
+      "agent": "qa_lead",
+      "timestamp": "2026-06-16T08:31:40.854945"
+    },
+    {
+      "id": "REG-05",
+      "name": "Letters page",
+      "status": "simulated",
+      "agent": "qa_lead",
+      "timestamp": "2026-06-16T08:31:40.854954"
+    },
+    {
+      "id": "REG-06",
+      "name": "Reports page data",
+      "status": "simulated",
+      "agent": "qa_lead",
+      "timestamp": "2026-06-16T08:31:40.854963"
+    },
+    {
+      "id": "REG-07",
+      "name": "Students page",
+      "status": "simulated",
+      "agent": "qa_lead",
+      "timestamp": "2026-06-16T08:31:40.854972"
+    },
+    {
+      "id": "REG-08",
+      "name": "Notifications",
+      "status": "simulated",
+      "agent": "qa_lead",
+      "timestamp": "2026-06-16T08:31:40.854980"
+    },
+    {
+      "id": "REG-09",
+      "name": "Dark mode toggle",
+      "status": "simulated",
+      "agent": "qa_lead",
+      "timestamp": "2026-06-16T08:31:40.854988"
+    },
+    {
+      "id": "REG-10",
+      "name": "Search input",
+      "status": "simulated",
+      "agent": "qa_lead",
+      "timestamp": "2026-06-16T08:31:40.854997"
+    },
+    {
+      "id": "REG-11",
+      "name": "Responsive sidebar",
+      "status": "simulated",
+      "agent": "qa_lead",
+      "timestamp": "2026-06-16T08:31:40.855004"
+    },
+    {
+      "id": "SEC-01",
+      "name": "Firestore rules - RBAC validation",
+      "status": "simulated",
+      "agent": "security_auditor",
+      "timestamp": "2026-06-16T08:31:40.859483"
+    },
+    {
+      "id": "SEC-02",
+      "name": "Auth token validation",
+      "status": "simulated",
+      "agent": "security_auditor",
+      "timestamp": "2026-06-16T08:31:40.859499"
+    },
+    {
+      "id": "SEC-03",
+      "name": "XSS in form inputs",
+      "status": "simulated",
+      "agent": "security_auditor",
+      "timestamp": "2026-06-16T08:31:40.859509"
+    },
+    {
+      "id": "SEC-04",
+      "name": "IDOR testing",
+      "status": "simulated",
+      "agent": "security_auditor",
+      "timestamp": "2026-06-16T08:31:40.859519"
+    },
+    {
+      "id": "SEC-05",
+      "name": "Firebase config exposure",
+      "status": "simulated",
+      "agent": "security_auditor",
+      "timestamp": "2026-06-16T08:31:40.859528"
+    },
+    {
+      "id": "SEC-06",
+      "name": "CSP and security headers",
+      "status": "simulated",
+      "agent": "security_auditor",
+      "timestamp": "2026-06-16T08:31:40.859538"
+    },
+    {
+      "id": "PERF-01",
+      "name": "Lighthouse audit",
+      "status": "simulated",
+      "agent": "perf_engineer",
+      "timestamp": "2026-06-16T08:31:40.862452"
+    },
+    {
+      "id": "PERF-02",
+      "name": "Bundle analysis",
+      "status": "simulated",
+      "agent": "perf_engineer",
+      "timestamp": "2026-06-16T08:31:40.862470"
+    },
+    {
+      "id": "PERF-03",
+      "name": "Firestore query cost estimate",
+      "status": "simulated",
+      "agent": "perf_engineer",
+      "timestamp": "2026-06-16T08:31:40.862479"
+    },
+    {
+      "id": "PERF-04",
+      "name": "TanStack Query cache audit",
+      "status": "simulated",
+      "agent": "perf_engineer",
+      "timestamp": "2026-06-16T08:31:40.862488"
+    },
+    {
+      "id": "UX-01",
+      "name": "Visual consistency",
+      "status": "simulated",
+      "agent": "ux_reviewer",
+      "timestamp": "2026-06-16T08:31:40.867294"
+    },
+    {
+      "id": "UX-02",
+      "name": "Dark mode visual regression",
+      "status": "simulated",
+      "agent": "ux_reviewer",
+      "timestamp": "2026-06-16T08:31:40.867314"
+    },
+    {
+      "id": "UX-03",
+      "name": "Loading/error/empty states",
+      "status": "simulated",
+      "agent": "ux_reviewer",
+      "timestamp": "2026-06-16T08:31:40.867324"
+    },
+    {
+      "id": "UX-04",
+      "name": "Mobile responsiveness",
+      "status": "simulated",
+      "agent": "ux_reviewer",
+      "timestamp": "2026-06-16T08:31:40.867332"
+    },
+    {
+      "id": "UX-05",
+      "name": "WCAG 2.1 AA compliance",
+      "status": "simulated",
+      "agent": "ux_reviewer",
+      "timestamp": "2026-06-16T08:31:40.867341"
+    },
+    {
+      "id": "UX-06",
+      "name": "Form UX",
+      "status": "simulated",
+      "agent": "ux_reviewer",
+      "timestamp": "2026-06-16T08:31:40.867349"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+phase4_label: "UX & Accessibility Review"
+assignee: "ux_reviewer"
+scenarios:
+  - id: UX-01
+    name: "Visual consistency"
+    steps:
+      - "Visit all 10 main pages"
+      - "Check color palette consistency (primary #0F766E, accent #14B8A6)"
+      - "Verify card radius, spacing, typography matches design system"
+      - "Take screenshots of each page"
+  - id: UX-02
+    name: "Dark mode visual regression"
+    steps:
+      - "Toggle dark mode on Dashboard"
+      - "Check contrast: text on dark bg (#0F172A)"
+      - "Navigate to each page in dark mode"
+      - "Verify no invisible text or broken colors"
+  - id: UX-03
+    name: "Loading/error/empty states"
+    steps:
+      - "Check LoadingState renders during data fetch"
+      - "Simulate error and verify ErrorState with retry button"
+      - "Check EmptyState on notifications (if no data)"
+  - id: UX-04
+    name: "Mobile responsiveness"
+    steps:
+      - "Test at 375px (mobile), 768px (tablet), 1280px (desktop)"
+      - "Check sidebar toggle, table horizontal scroll, form inputs"
+      - "Verify touch targets >= 44px"
+  - id: UX-05
+    name: "WCAG 2.1 AA compliance"
+    steps:
+      - "Check color contrast ratios (4.5:1 text, 3:1 large text)"
+      - "Verify focus indicators on all interactive elements"
+      - "Check heading hierarchy (h1 > h2 > h3)"
+      - "Verify ARIA labels on icons and buttons"
+  - id: UX-06
+    name: "Form UX"
+    steps:
+      - "Submit empty form -> check inline errors"
+      - "Submit invalid data -> check toast/error summary"
+      - "Submit valid data -> check success toast + redirect"
+      - "Check loading state on submit button"

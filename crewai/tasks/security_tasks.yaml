@@ -1,0 +1,38 @@
+phase2_label: "Security Deep-Dive"
+assignee: "security_auditor"
+scenarios:
+  - id: SEC-01
+    name: "Firestore rules - RBAC validation"
+    steps:
+      - "Read firestore.rules"
+      - "Verify each collection has role-based read/write guards"
+      - "Check violations: only admin/guru_bk/stp2k/wali_kelas can write"
+      - "Check students: role-based read access"
+  - id: SEC-02
+    name: "Auth token validation"
+    steps:
+      - "Inspect Firebase auth configuration"
+      - "Verify expired token handling"
+      - "Check role stored in Firestore user document vs custom claims"
+  - id: SEC-03
+    name: "XSS in form inputs"
+    steps:
+      - "Type <script>alert('xss')</script> in search box"
+      - "Assert payload not executed on page"
+      - "Navigate to another page, assert no alert fired"
+  - id: SEC-04
+    name: "IDOR testing"
+    steps:
+      - "Attempt to access other students' data by URL manipulation"
+      - "Check if /students/ID accessible without ownership"
+      - "Verify ProtectedRoute blocks unauthorized pages"
+  - id: SEC-05
+    name: "Firebase config exposure"
+    steps:
+      - "Check if firebaseConfig keys are properly in .env"
+      - "Verify gitignore has .env and service-account.json"
+  - id: SEC-06
+    name: "CSP and security headers"
+    steps:
+      - "Check response headers via fetch"
+      - "Look for Content-Security-Policy, X-Frame-Options, Strict-Transport-Security"

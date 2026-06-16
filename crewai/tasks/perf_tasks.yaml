@@ -1,0 +1,26 @@
+phase3_label: "Performance & Cost Analysis"
+assignee: "perf_engineer"
+scenarios:
+  - id: PERF-01
+    name: "Lighthouse audit"
+    steps:
+      - "Run Lighthouse on production URL"
+      - "Record Performance, Accessibility, Best Practices, SEO scores"
+  - id: PERF-02
+    name: "Bundle analysis"
+    steps:
+      - "Analyze dist/assets chunk sizes"
+      - "Identify largest chunks and potential for further splitting"
+  - id: PERF-03
+    name: "Firestore query cost estimate"
+    steps:
+      - "Review all service files for Firestore queries"
+      - "Count reads per page (documents fetched)"
+      - "Estimate reads per user session"
+      - "Identify N+1 query patterns"
+  - id: PERF-04
+    name: "TanStack Query cache audit"
+    steps:
+      - "Check staleTime and gcTime configurations"
+      - "Verify query invalidation on mutations"
+      - "Check refetchOnWindowFocus behavior"

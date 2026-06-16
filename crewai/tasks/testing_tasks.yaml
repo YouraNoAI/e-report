@@ -1,0 +1,72 @@
+phase1_label: "Automated Regression Testing"
+assignee: "qa_lead"
+scenarios:
+  - id: REG-01
+    name: "Login all 7 roles"
+    steps:
+      - "Navigate to /login"
+      - "Enter email for each role: admin, guru_bk, stp2k, wali_kelas, kesiswaan, orang_tua, siswa"
+      - "Enter password: Password123!"
+      - "Assert redirect to /dashboard"
+      - "Screenshot each role dashboard"
+      - "Logout after each"
+  - id: REG-02
+    name: "Violations CRUD"
+    steps:
+      - "Login as admin"
+      - "Navigate to /violations"
+      - "Assert table or error state renders"
+      - "If Tambah button visible, click and verify form"
+  - id: REG-03
+    name: "Coaching page"
+    steps:
+      - "Navigate to /coaching"
+      - "Assert page loads without error"
+  - id: REG-04
+    name: "Cases page"
+    steps:
+      - "Navigate to /cases"
+      - "Assert data or empty state renders"
+  - id: REG-05
+    name: "Letters page"
+    steps:
+      - "Navigate to /letters"
+      - "Assert page loads"
+  - id: REG-06
+    name: "Reports page data"
+    steps:
+      - "Navigate to /reports"
+      - "Assert stat cards, charts, and detail table render"
+      - "Verify total stats > 0"
+  - id: REG-07
+    name: "Students page"
+    steps:
+      - "Navigate to /students"
+      - "Assert table renders"
+  - id: REG-08
+    name: "Notifications"
+    steps:
+      - "Navigate to /notifications"
+      - "Assert list renders (empty or with data)"
+      - "Verify badge count matches"
+  - id: REG-09
+    name: "Dark mode toggle"
+    steps:
+      - "Click theme toggle button in top bar"
+      - "Assert dark class on html element"
+      - "Navigate to 3 different pages"
+      - "Assert dark mode persists across navigation"
+  - id: REG-10
+    name: "Search input"
+    steps:
+      - "Type test query in search box"
+      - "Assert input accepts text"
+      - "Navigate away and back"
+      - "Assert input is cleared or sanitized"
+  - id: REG-11
+    name: "Responsive sidebar"
+    steps:
+      - "Resize viewport to 375x812 (mobile)"
+      - "Assert hamburger menu visible"
+      - "Click hamburger, assert sidebar opens"
+      - "Assert sidebar closes on link click"

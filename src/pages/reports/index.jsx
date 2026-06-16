@@ -30,6 +30,7 @@ import { Badge } from "../../components/ui/badge";
 import LoadingState from "../../components/shared/LoadingState";
 import EmptyState from "../../components/shared/EmptyState";
 import ErrorState from "../../components/shared/ErrorState";
+import { fetchReportData } from "../../services/reportsService";
 
 const PIE_COLORS = [
   "#0F766E",
@@ -39,73 +40,6 @@ const PIE_COLORS = [
   "#DC2626",
   "#10B981",
   "#EC4899",
-];
-
-const MOCK_STATS = {
-  totalPelanggaran: 584,
-  rataPoin: 32.5,
-  siswaTerlibat: 246,
-  suratTerbit: 97,
-};
-
-const MOCK_TREN = [
-  { bulan: "Jul", jumlah: 42 },
-  { bulan: "Agu", jumlah: 55 },
-  { bulan: "Sep", jumlah: 68 },
-  { bulan: "Okt", jumlah: 51 },
-  { bulan: "Nov", jumlah: 47 },
-  { bulan: "Des", jumlah: 73 },
-  { bulan: "Jan", jumlah: 61 },
-  { bulan: "Feb", jumlah: 58 },
-  { bulan: "Mar", jumlah: 45 },
-  { bulan: "Apr", jumlah: 82 },
-  { bulan: "Mei", jumlah: 64 },
-  { bulan: "Jun", jumlah: 38 },
-];
-
-const MOCK_TOP_KATEGORI = [
-  { kategori: "Terlambat", jumlah: 142 },
-  { kategori: "Seragam Tidak Rapi", jumlah: 98 },
-  { kategori: "Bolos", jumlah: 87 },
-  { kategori: "Merokok", jumlah: 63 },
-  { kategori: "Penggunaan HP", jumlah: 55 },
-  { kategori: "Tidak Mengerjakan PR", jumlah: 48 },
-  { kategori: "Berkelahi", jumlah: 36 },
-  { kategori: "Membuang Sampah", jumlah: 29 },
-  { kategori: "Akses Konten Terlarang", jumlah: 22 },
-  { kategori: "Vandalisme", jumlah: 14 },
-];
-
-const MOCK_STATUS_DISTRIBUSI = [
-  { status: "Dicatat", value: 35 },
-  { status: "STP2K", value: 25 },
-  { status: "Konseling BK", value: 20 },
-  { status: "Kesiswaan", value: 12 },
-  { status: "Selesai", value: 8 },
-];
-
-const MOCK_PER_KELAS = [
-  { kelas: "X RPL 1", jumlah: 24 },
-  { kelas: "X RPL 2", jumlah: 18 },
-  { kelas: "XI RPL 1", jumlah: 31 },
-  { kelas: "XI RPL 2", jumlah: 27 },
-  { kelas: "XII RPL 1", jumlah: 22 },
-  { kelas: "XII RPL 2", jumlah: 15 },
-  { kelas: "X AKL 1", jumlah: 12 },
-  { kelas: "X AKL 2", jumlah: 9 },
-  { kelas: "XI AKL 1", jumlah: 19 },
-  { kelas: "XI AKL 2", jumlah: 14 },
-];
-
-const MOCK_DETAIL = [
-  { tanggal: "10 Jun 2026", siswa: "Ahmad Rizki", kelas: "XI RPL 1", kategori: "Terlambat", poin: 10, statusKasus: "STP2K" },
-  { tanggal: "10 Jun 2026", siswa: "Siti Rahma", kelas: "X AKL 2", kategori: "Seragam", poin: 5, statusKasus: "Dicatat" },
-  { tanggal: "09 Jun 2026", siswa: "Budi Santoso", kelas: "XII RPL 1", kategori: "Merokok", poin: 25, statusKasus: "BK" },
-  { tanggal: "09 Jun 2026", siswa: "Dewi Lestari", kelas: "XI AKL 1", kategori: "Bolos", poin: 15, statusKasus: "Kesiswaan" },
-  { tanggal: "08 Jun 2026", siswa: "Fajar Pratama", kelas: "X RPL 1", kategori: "HP", poin: 10, statusKasus: "STP2K" },
-  { tanggal: "08 Jun 2026", siswa: "Rina Amelia", kelas: "XII AKL 2", kategori: "Terlambat", poin: 10, statusKasus: "Dicatat" },
-  { tanggal: "07 Jun 2026", siswa: "Gilang Permana", kelas: "XI RPL 2", kategori: "Berkelahi", poin: 30, statusKasus: "BK" },
-  { tanggal: "07 Jun 2026", siswa: "Nadia Putri", kelas: "X AKL 1", kategori: "Seragam", poin: 5, statusKasus: "Selesai" },
 ];
 
 const STATUS_BADGE = {
@@ -121,21 +55,6 @@ const CHART_TOOLTIP_STYLE = {
   border: "1px solid #e2e8f0",
   fontSize: "13px",
 };
-
-function fetchReportData() {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve({
-        stats: MOCK_STATS,
-        tren: MOCK_TREN,
-        topKategori: MOCK_TOP_KATEGORI,
-        statusDistribusi: MOCK_STATUS_DISTRIBUSI,
-        perKelas: MOCK_PER_KELAS,
-        detail: MOCK_DETAIL,
-      });
-    }, 600);
-  });
-}
 
 function StatCard({ title, value, icon: Icon, color, loading }) {
   if (loading) {
