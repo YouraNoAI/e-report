@@ -1,0 +1,10 @@
+{
+  "name": "e-report-seed",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "docx": "^9.7.1",
+    "exceljs": "^4.4.0",
+    "firebase-admin": "^13.1.0"
+  }
+}

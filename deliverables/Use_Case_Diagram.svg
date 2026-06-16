@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 580" width="100%" height="100%"><rect width="780" height="580" fill="url(#bg)"/><rect x="0" y="0" width="780" height="36" fill="url(#hd)"/><text x="390" y="24" text-anchor="middle" fill="#FFF" font-size="15" font-weight="bold" font-family="Arial">Use Case Diagram - E-Report SMK Texmaco</text><defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#115E59"/></marker>
+    <marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#14B8A6"/></marker>
+    <marker id="a3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#94A3B8"/></marker>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#F8FAFC"/><stop offset="100%" stop-color="#E2E8F0"/></linearGradient>
+    <linearGradient id="hd" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0F766E"/><stop offset="100%" stop-color="#14B8A6"/></linearGradient>
+    <filter id="sh" x="-5%" y="-5%" width="115%" height="120%"><feDropShadow dx="1" dy="2" stdDeviation="3" flood-color="#0F172A" flood-opacity="0.12"/></filter>
+  </defs><rect x="170" y="50" width="480" height="500" rx="12" fill="none" stroke="#0F766E" stroke-width="2"/><text x="410" y="73" text-anchor="middle" fill="#0F766E" font-size="13" font-weight="bold" font-family="Arial">E-Report Siswa SMK Texmaco</text><circle cx="52" cy="108" r="7" fill="none" stroke="#1E293B" stroke-width="1.5"/>
+    <line x1="52" y1="115" x2="52" y2="130" stroke="#1E293B" stroke-width="1.5"/>
+    <line x1="40" y1="121" x2="64" y2="121" stroke="#1E293B" stroke-width="1.5"/>
+    <line x1="52" y1="130" x2="44" y2="144" stroke="#1E293B" stroke-width="1.5"/>
+    <line x1="52" y1="130" x2="60" y2="144" stroke="#1E293B" stroke-width="1.5"/><text x="52" y="155" text-anchor="middle" fill="#1E293B" font-size="10" font-weight="bold" font-family="Arial, sans-serif">Admin</text><circle cx="52" cy="218" r="7" fill="none" stroke="#1E293B" stroke-width="1.5"/>
+    <line x1="52" y1="225" x2="52" y2="240" stroke="#1E293B" stroke-width="1.5"/>
+    <line x1="40" y1="231" x2="64" y2="231" stroke="#1E293B" stroke-width="1.5"/>
+    <line x1="52" y1="240" x2="44" y2="254" stroke="#1E293B" stroke-width="1.5"/>
+    <line x1="52" y1="240" x2="60" y2="254" stroke="#1E293B" stroke-width="1.5"/><text x="52" y="265" text-anchor="middle" fill="#1E293B" font-size="10" font-weight="bold" font-family="Arial, sans-serif">Guru BK</text><circle cx="52" cy="328" r="7" fill="none" stroke="#1E293B" stroke-width="1.5"/>
+    <line x1="52" y1="335" x2="52" y2="350" stroke="#1E293B" stroke-width="1.5"/>
+    <line x1="40" y1="341" x2="64" y2="341" stroke="#1E293B" stroke-width="1.5"/>
+    <line x1="52" y1="350" x2="44" y2="364" stroke="#1E293B" stroke-width="1.5"/>
+    <line x1="52" y1="350" x2="60" y2="364" stroke="#1E293B" stroke-width="1.5"/><text x="52" y="375" text-anchor="middle" fill="#1E293B" font-size="10" font-weight="bold" font-family="Arial, sans-serif">STP2K</text><circle cx="52" cy="438" r="7" fill="none" stroke="#1E293B" stroke-width="1.5"/>
+    <line x1="52" y1="445" x2="52" y2="460" stroke="#1E293B" stroke-width="1.5"/>
+    <line x1="40" y1="451" x2="64" y2="451" stroke="#1E293B" stroke-width="1.5"/>
+    <line x1="52" y1="460" x2="44" y2="474" stroke="#1E293B" stroke-width="1.5"/>
+    <line x1="52" y1="460" x2="60" y2="474" stroke="#1E293B" stroke-width="1.5"/><text x="52" y="485" text-anchor="middle" fill="#1E293B" font-size="10" font-weight="bold" font-family="Arial, sans-serif">Wali Kelas</text><circle cx="722" cy="108" r="7" fill="none" stroke="#1E293B" stroke-width="1.5"/>
+    <line x1="722" y1="115" x2="722" y2="130" stroke="#1E293B" stroke-width="1.5"/>
+    <line x1="710" y1="121" x2="734" y2="121" stroke="#1E293B" stroke-width="1.5"/>
+    <line x1="722" y1="130" x2="714" y2="144" stroke="#1E293B" stroke-width="1.5"/>
+    <line x1="722" y1="130" x2="730" y2="144" stroke="#1E293B" stroke-width="1.5"/><text x="698" y="155" text-anchor="middle" fill="#1E293B" font-size="10" font-weight="bold" font-family="Arial, sans-serif">Kesiswaan</text><circle cx="722" cy="218" r="7" fill="none" stroke="#1E293B" stroke-width="1.5"/>
+    <line x1="722" y1="225" x2="722" y2="240" stroke="#1E293B" stroke-width="1.5"/>
+    <line x1="710" y1="231" x2="734" y2="231" stroke="#1E293B" stroke-width="1.5"/>
+    <line x1="722" y1="240" x2="714" y2="254" stroke="#1E293B" stroke-width="1.5"/>
+    <line x1="722" y1="240" x2="730" y2="254" stroke="#1E293B" stroke-width="1.5"/><text x="698" y="265" text-anchor="middle" fill="#1E293B" font-size="10" font-weight="bold" font-family="Arial, sans-serif">Orang Tua</text><circle cx="722" cy="328" r="7" fill="none" stroke="#1E293B" stroke-width="1.5"/>
+    <line x1="722" y1="335" x2="722" y2="350" stroke="#1E293B" stroke-width="1.5"/>
+    <line x1="710" y1="341" x2="734" y2="341" stroke="#1E293B" stroke-width="1.5"/>
+    <line x1="722" y1="350" x2="714" y2="364" stroke="#1E293B" stroke-width="1.5"/>
+    <line x1="722" y1="350" x2="730" y2="364" stroke="#1E293B" stroke-width="1.5"/><text x="698" y="375" text-anchor="middle" fill="#1E293B" font-size="10" font-weight="bold" font-family="Arial, sans-serif">Siswa</text><ellipse cx="275" cy="101" rx="65" ry="16" fill="#FFF" stroke="#0F766E" stroke-width="1.5" filter="url(#sh)"/>
+    <text x="275" y="105" text-anchor="middle" fill="#1E293B" font-size="10" font-family="Arial">Login/Logout</text><ellipse cx="470" cy="101" rx="70" ry="16" fill="#FFF" stroke="#0F766E" stroke-width="1.5" filter="url(#sh)"/>
+    <text x="470" y="105" text-anchor="middle" fill="#1E293B" font-size="10" font-family="Arial">Manajemen Siswa</text><ellipse cx="265" cy="156" rx="75" ry="16" fill="#FFF" stroke="#0F766E" stroke-width="1.5" filter="url(#sh)"/>
+    <text x="265" y="160" text-anchor="middle" fill="#1E293B" font-size="10" font-family="Arial">Kelola Pelanggaran</text><ellipse cx="485" cy="156" rx="75" ry="16" fill="#FFF" stroke="#0F766E" stroke-width="1.5" filter="url(#sh)"/>
+    <text x="485" y="160" text-anchor="middle" fill="#1E293B" font-size="10" font-family="Arial">Upload Bukti</text><ellipse cx="265" cy="211" rx="75" ry="16" fill="#FFF" stroke="#0F766E" stroke-width="1.5" filter="url(#sh)"/>
+    <text x="265" y="215" text-anchor="middle" fill="#1E293B" font-size="10" font-family="Arial">Catat Pembinaan</text><ellipse cx="485" cy="211" rx="75" ry="16" fill="#FFF" stroke="#0F766E" stroke-width="1.5" filter="url(#sh)"/>
+    <text x="485" y="215" text-anchor="middle" fill="#1E293B" font-size="10" font-family="Arial">Konseling BK</text><ellipse cx="265" cy="266" rx="75" ry="16" fill="#FFF" stroke="#0F766E" stroke-width="1.5" filter="url(#sh)"/>
+    <text x="265" y="270" text-anchor="middle" fill="#1E293B" font-size="10" font-family="Arial">Tracking Kasus</text><ellipse cx="485" cy="266" rx="75" ry="16" fill="#FFF" stroke="#0F766E" stroke-width="1.5" filter="url(#sh)"/>
+    <text x="485" y="270" text-anchor="middle" fill="#1E293B" font-size="10" font-family="Arial">Generate Surat</text><ellipse cx="265" cy="321" rx="75" ry="16" fill="#FFF" stroke="#0F766E" stroke-width="1.5" filter="url(#sh)"/>
+    <text x="265" y="325" text-anchor="middle" fill="#1E293B" font-size="10" font-family="Arial">Lihat Notifikasi</text><ellipse cx="485" cy="321" rx="75" ry="16" fill="#FFF" stroke="#0F766E" stroke-width="1.5" filter="url(#sh)"/>
+    <text x="485" y="325" text-anchor="middle" fill="#1E293B" font-size="10" font-family="Arial">Export Laporan</text><ellipse cx="385" cy="376" rx="90" ry="16" fill="#FFF" stroke="#0F766E" stroke-width="1.5" filter="url(#sh)"/>
+    <text x="385" y="380" text-anchor="middle" fill="#1E293B" font-size="10" font-family="Arial">Kelola Kategori (Admin)</text><ellipse cx="385" cy="431" rx="90" ry="16" fill="#FFF" stroke="#0F766E" stroke-width="1.5" filter="url(#sh)"/>
+    <text x="385" y="435" text-anchor="middle" fill="#1E293B" font-size="10" font-family="Arial">Konfigurasi Sistem (Admin)</text><line x1="64" y1="125" x2="210" y2="101" stroke="#94A3B8" stroke-width="1.2"/><line x1="64" y1="125" x2="210" y2="156" stroke="#94A3B8" stroke-width="1.2"/><line x1="64" y1="235" x2="210" y2="211" stroke="#94A3B8" stroke-width="1.2"/><line x1="64" y1="235" x2="210" y2="266" stroke="#94A3B8" stroke-width="1.2"/><line x1="64" y1="345" x2="210" y2="211" stroke="#94A3B8" stroke-width="1.2"/><line x1="64" y1="345" x2="210" y2="321" stroke="#94A3B8" stroke-width="1.2"/><line x1="64" y1="455" x2="210" y2="156" stroke="#94A3B8" stroke-width="1.2"/><line x1="716" y1="125" x2="550" y2="156" stroke="#94A3B8" stroke-width="1.2"/><line x1="716" y1="125" x2="550" y2="211" stroke="#94A3B8" stroke-width="1.2"/><line x1="716" y1="235" x2="550" y2="321" stroke="#94A3B8" stroke-width="1.2"/><line x1="716" y1="345" x2="550" y2="321" stroke="#94A3B8" stroke-width="1.2"/><line x1="716" y1="235" x2="550" y2="376" stroke="#94A3B8" stroke-width="1.2"/><line x1="64" y1="455" x2="550" y2="431" stroke="#94A3B8" stroke-width="1.2"/>
+</svg>

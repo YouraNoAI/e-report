@@ -1,0 +1,180 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return isAuthenticated()
+        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+    }
+
+    function isGuruBK() {
+      return isAuthenticated()
+        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'guru_bk';
+    }
+
+    function isSTP2K() {
+      return isAuthenticated()
+        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'stp2k';
+    }
+
+    function isWaliKelas() {
+      return isAuthenticated()
+        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'wali_kelas';
+    }
+
+    function isKesiswaan() {
+      return isAuthenticated()
+        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'kesiswaan';
+    }
+
+    function isOrangTua() {
+      return isAuthenticated()
+        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'orang_tua';
+    }
+
+    function isSiswa() {
+      return isAuthenticated()
+        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'siswa';
+    }
+
+    function isStaff() {
+      return isAuthenticated() && (
+        isAdmin() || isGuruBK() || isSTP2K() || isWaliKelas() || isKesiswaan()
+      );
+    }
+
+    function isActive() {
+      return isAuthenticated()
+        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.isActive == true;
+    }
+
+    // Users collection
+    match /users/{userId} {
+      allow read: if isAuthenticated() && isActive();
+      allow create: if isAdmin();
+      allow update: if isAdmin()
+        || (request.auth.uid == userId && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['phone', 'fullName']));
+      allow delete: if isAdmin();
+
+      // Only admins can change role
+      allow update: if isAdmin()
+        || (request.auth.uid == userId
+          && (!request.resource.data.keys().hasAll(['role', 'isActive'])
+            || request.resource.data.role == resource.data.role
+            || request.resource.data.isActive == resource.data.isActive));
+    }
+
+    // Students collection
+    match /students/{studentId} {
+      allow read: if isAuthenticated() && isActive() && (
+        isStaff()
+        || (isOrangTua() && resource.data.parentEmail == request.auth.token.email)
+        || (isSiswa() && resource.data.email == request.auth.token.email)
+      );
+      allow create: if isAdmin();
+      allow update: if isAdmin();
+      allow delete: if isAdmin();
+    }
+
+    // Violation categories
+    match /violation_categories/{categoryId} {
+      allow read: if isAuthenticated() && isActive();
+      allow create: if isAdmin() || isGuruBK();
+      allow update: if isAdmin() || isGuruBK();
+      allow delete: if isAdmin();
+    }
+
+    // Violations
+    match /violations/{violationId} {
+      allow read: if isAuthenticated() && isActive() && (
+        isStaff()
+        || (isOrangTua() && exists(/databases/$(database)/documents/students/$(resource.data.studentId)) &&
+          get(/databases/$(database)/documents/students/$(resource.data.studentId)).data.parentEmail == request.auth.token.email)
+        || (isSiswa() && resource.data.studentId == request.auth.uid)
+      );
+      allow create: if isAuthenticated() && isActive() && (isAdmin() || isGuruBK() || isSTP2K() || isWaliKelas() || isKesiswaan());
+      allow update: if isAdmin() || isKesiswaan();
+      allow delete: if isAdmin();
+    }
+
+    // Coaching notes
+    match /coaching_notes/{noteId} {
+      allow read: if isAuthenticated() && isActive() && (
+        isStaff()
+        || (isOrangTua() && exists(/databases/$(database)/documents/students/$(resource.data.studentId)) &&
+          get(/databases/$(database)/documents/students/$(resource.data.studentId)).data.parentEmail == request.auth.token.email)
+        || (isSiswa() && resource.data.studentId == request.auth.uid)
+      );
+      allow create: if isAuthenticated() && isActive() && (isAdmin() || isGuruBK() || isSTP2K() || isKesiswaan());
+      allow update: if isAdmin();
+      allow delete: if isAdmin();
+    }
+
+    // Case progress
+    match /case_progress/{progressId} {
+      allow read: if isAuthenticated() && isActive() && (
+        isStaff()
+        || (isOrangTua() && exists(/databases/$(database)/documents/students/$(resource.data.studentId)) &&
+          get(/databases/$(database)/documents/students/$(resource.data.studentId)).data.parentEmail == request.auth.token.email)
+        || (isSiswa() && resource.data.studentId == request.auth.uid)
+      );
+      allow create: if isAuthenticated() && isActive() && (isAdmin() || isGuruBK() || isSTP2K() || isKesiswaan());
+      allow update: if isAuthenticated() && isActive() && (isAdmin() || isGuruBK() || isSTP2K() || isKesiswaan());
+      allow delete: if isAdmin();
+    }
+
+    // Letters
+    match /letters/{letterId} {
+      allow read: if isAuthenticated() && isActive() && (
+        isStaff()
+        || (isOrangTua() && exists(/databases/$(database)/documents/students/$(resource.data.studentId)) &&
+          get(/databases/$(database)/documents/students/$(resource.data.studentId)).data.parentEmail == request.auth.token.email)
+        || (isSiswa() && resource.data.studentId == request.auth.uid)
+      );
+      allow create: if isAuthenticated() && isActive() && (isAdmin() || isGuruBK() || isKesiswaan());
+      allow update: if isAdmin() || isKesiswaan();
+      allow delete: if isAdmin();
+    }
+
+    // Letter templates
+    match /letter_templates/{templateId} {
+      allow read: if isAuthenticated() && isActive();
+      allow create: if isAdmin();
+      allow update: if isAdmin();
+      allow delete: if isAdmin();
+    }
+
+    // Notifications
+    match /notifications/{notificationId} {
+      allow read: if isAuthenticated() && isActive() && request.auth.uid == resource.data.userId;
+      allow create: if isAuthenticated();
+      allow update: if request.auth.uid == resource.data.userId;
+      allow delete: if request.auth.uid == resource.data.userId || isAdmin();
+    }
+
+    // Audit logs
+    match /audit_logs/{logId} {
+      allow read: if isAuthenticated() && isActive() && isStaff();
+      allow create: if isAuthenticated();
+      allow update: if false;
+      allow delete: if false;
+    }
+
+    // Settings
+    match /settings/{settingId} {
+      allow read: if isAuthenticated() && isActive();
+      allow write: if isAdmin();
+    }
+
+    // School profiles
+    match /school_profiles/{profileId} {
+      allow read: if isAuthenticated();
+      allow write: if isAdmin();
+    }
+  }
+}

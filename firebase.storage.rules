@@ -1,0 +1,55 @@
+rules_version = '2';
+
+service firebase.storage {
+  match /b/{bucket}/o {
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return isAuthenticated()
+        && firestore.exists(/databases/(default)/documents/users/$(request.auth.uid))
+        && firestore.get(/databases/(default)/documents/users/$(request.auth.uid)).data.role == 'admin';
+    }
+
+    function isStaff() {
+      return isAuthenticated()
+        && firestore.exists(/databases/(default)/documents/users/$(request.auth.uid))
+        && firestore.get(/databases/(default)/documents/users/$(request.auth.uid)).data.role in ['admin', 'guru_bk', 'stp2k', 'wali_kelas', 'kesiswaan'];
+    }
+
+    // Evidence files - staff can upload, authenticated can read
+    match /evidence/{fileName} {
+      allow read: if isAuthenticated();
+      allow write: if isStaff()
+        && request.resource.size < 5 * 1024 * 1024
+        && request.resource.contentType.matches('image/.*|application/pdf');
+      allow delete: if isAdmin();
+    }
+
+    // Letter PDFs
+    match /letters/{fileName} {
+      allow read: if isAuthenticated();
+      allow write: if isStaff();
+      allow delete: if isAdmin();
+    }
+
+    // User avatars
+    match /avatars/{userId}/{fileName} {
+      allow read: if isAuthenticated();
+      allow write: if request.auth.uid == userId || isAdmin();
+      allow delete: if request.auth.uid == userId || isAdmin();
+    }
+
+    // School logos
+    match /logos/{fileName} {
+      allow read: true;
+      allow write: if isAdmin();
+    }
+
+    // Deny all other access
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}
